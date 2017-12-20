@@ -4,7 +4,9 @@ import os,sqlite3, hashlib
 
 app=Flask(__name__)
 
-
+@app.route('/slots')
+def slots():
+	return render_template('slots.html');
 
 
 
