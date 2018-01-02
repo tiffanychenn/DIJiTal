@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<style>
+#boardBorders {
+width: 900px;
+height: 600px;
+position: relative;
+border-style: solid;
+border-color: black;
+}
+
+#game1Space{
+width:150;
+height:100px;
+background: blue;
+}
+
+#game2Space{
+width:150;
+height: 100px;
+background: yellow;
+}
+
+#game3Space{
+width:150;
+height:100px;
+background: purple;
+}
+
+#game4Space{
+width:150;
+height: 100px;
+background: orange;
+}
+
+#player1 {
+width: 50px;
+height: 50px;
+position: absolute;
+background-color: red;
+}
+
+#player2 {
+width: 50px;
+height: 50px;
+postion: absolute;
+background-color:green;
+}
+
+</style>
+<body>
+
+<p>
+<button onclick="right()">Roll Dice</button> 
+</p>
+
+<div id ="boardBorders">
+<div id ="player1"></div>
+</div>
+<script src="board.js"></script>
+
+</body>
+</html>
