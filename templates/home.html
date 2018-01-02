@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>home page</title>
+{% endblock %}
+
+{% block body %}
+<h2>Welcome to our Mario Party!</h2>
+<h3>About:</h3>
+<p>Two players will play on the same computer for 10 turns (may allow players to choose the amount of turns if we have time). Each player starts with 20 coins. In every turn, each player will roll the die and land on a spot where they will gain/lose a certain amount of coins. After each player traverses the board, a minigame will randomly be selected for them to play. The winner of the minigame will receive 5 (amount subject to change) coins. The player with the most coins at the end wins.</p>
+<h3>Controls:</h3>
+<ul>
+    <li>Player 1 (Mario) will play minigames with the asdw keys.</li>
+    <li>Player 2 (Luigi) will play minigames with the arrow keys.</li>
+    <li>Both players will roll the die by clicking on the "Roll Dice" button.</li>
+</ul>
+<h3>Start a new game here!</h3>
+<form method="POST" action="/board">
+    <input type="submit" value="Let's play!">
+</form>
+<h3>Continue an old game here!</h3>
+<form method="POST" action="/oldGame">
+    Game ID: <input type=text name=game><br>
+    Passcode: <input type=text name=passcode><br><br>
+    <input type="submit" value="Let's play!">
+</form>
+{% endblock %}
