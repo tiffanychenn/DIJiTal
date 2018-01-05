@@ -4,3 +4,12 @@ topherM -- 1999-12-31 23:59
 
 doniaT -- 2018-01-02 14:00
 worked on basic animations
+
+tiffanyC -- 2018-01-02 14:05
+finished html for home page and created oldGame and newGame paths
+
+tiffanyC -- 2018-01-03 14:05
+finished database.py functions
+
+tiffanyC -- 2018-01-04 19:16
+tested authenticate() and createGame() in database.py

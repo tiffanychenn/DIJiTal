@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, session, redirect, url_for
-
+from utils import database as db
 import os,sqlite3, hashlib
 
 app=Flask(__name__)
@@ -10,15 +10,21 @@ def root():
 
 @app.route('/board')
 def board():
+	return render_template('base.html')
 
 @app.route('/slots')
 def slots():
 	return render_template('slots.html')
 
-@app.route('/oldGame')
+@app.route('/oldGame', methods=["GET", "POST"])
 def oldGame():
-	game = request.form["game"]
-	passcode = request.form["passcode"]
+	game = int(request.form["game"])
+	passcode = int(request.form["passcode"])
+	return str(db.authenticate(game, passcode))
+
+@app.route('/newGame', methods=["GET", "POST"])
+def newGame():
+	db.createGame()
 	return redirect(url_for("board"))
 
 if __name__ == '__main__':
