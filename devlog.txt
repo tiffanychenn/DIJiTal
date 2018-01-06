@@ -13,3 +13,6 @@ finished database.py functions
 
 tiffanyC -- 2018-01-04 19:16
 tested authenticate() and createGame() in database.py
+
+tiffanyC -- 2018-01-05 21:15
+added flash messages to home.html

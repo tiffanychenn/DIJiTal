@@ -5,6 +5,14 @@
 {% endblock %}
 
 {% block body %}
+
+{% set messages = get_flashed_messages() %}
+{% for message in messages %}
+<h3>
+    {{message}}
+</h3>
+{% endfor %}
+
 <h2>Welcome to our Mario Party!</h2>
 <h3>About:</h3>
 <p>Two players will play on the same computer for 10 turns (may allow players to choose the amount of turns if we have time). Each player starts with 20 coins. In every turn, each player will roll the die and land on a spot where they will gain/lose a certain amount of coins. After each player traverses the board, a minigame will randomly be selected for them to play. The winner of the minigame will receive 5 (amount subject to change) coins. The player with the most coins at the end wins.</p>

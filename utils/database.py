@@ -25,7 +25,7 @@ def authenticate(game, passw):
         turns = int(i[0])
         print turns
     closeDatabase(db)
-    return (passw == passcode) & (turns < 10)
+    return (passw == passcode) & (turns < 10), passw == passcode
 
 def createGame():
     db, c = openDatabase()
