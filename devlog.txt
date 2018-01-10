@@ -16,3 +16,7 @@ tested authenticate() and createGame() in database.py
 
 tiffanyC -- 2018-01-05 21:15
 added flash messages to home.html
+
+doniaT -- 2018-01-10 14:01
+pushed board (but I'm going to change the colors)
+roll() and move() functions are like semi-working
