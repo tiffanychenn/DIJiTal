@@ -1,0 +1,68 @@
+.box {
+	width: 21%;
+	margin: 2%;
+	height: 250px;
+	position: relative;
+	perspective: 800px;
+	background-color: red;
+}
+
+.board {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.card {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	transform-style: preserve-3d;
+	transition: transform 1s;
+}
+
+.card div {
+	margin: 0;
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.card1 div {
+	margin: 0;
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.card .front {
+	background: url('back.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.card1 .front {
+	background: url('back2.jpg');
+	background-size: cover;
+	background-position: center;
+}
+
+.card .back {
+	background: url('#');
+	background-size: cover;
+	background-position: center;
+	transform: rotateY(180deg);
+}
+
+.timer {
+	margin-left:10%;
+	height: 50px;
+	text-align: center;
+	font-weight: 200;
+	font-size: 38pt;
+}
+
+
