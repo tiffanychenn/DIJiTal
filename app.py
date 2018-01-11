@@ -12,7 +12,7 @@ def root():
 
 @app.route('/board')
 def board():
-	return render_template('base.html')
+	return render_template('board.html')
 
 @app.route('/slots')
 def slots():
@@ -27,7 +27,9 @@ def oldGame():
 	game = int(request.form["game"])
 	passcode = int(request.form["passcode"])
 	boolean, passw = db.authenticate(game, passcode)
-	if boolean:
+	if boolean == 0:
+		flash("Game ID does not exist.")
+	elif boolean:
 		return str(boolean)
 	elif passw:
 		flash("Game has already passed ten turns.")

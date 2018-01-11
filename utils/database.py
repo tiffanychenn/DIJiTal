@@ -16,9 +16,13 @@ def authenticate(game, passw):
     db, c = openDatabase()
     cm = "SELECT passcode FROM games WHERE gameID = %d;" %game
     x = c.execute(cm)
+    boolean = False
     for i in x:
+        boolean = True
         passcode = int(i[0])
         print passcode
+    if not boolean:
+        return 0, 0
     cm = "SELECT turns FROM games WHERE gameID = %d;" %game
     x = c.execute(cm)
     for i in x:
