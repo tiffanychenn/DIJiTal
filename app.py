@@ -18,6 +18,10 @@ def board():
 def slots():
 	return render_template('slots.html')
 
+@app.route('/memm')
+def memm():
+	return render_template('memmatch.html')
+
 @app.route('/oldGame', methods=["GET", "POST"])
 def oldGame():
 	game = int(request.form["game"])
