@@ -20,3 +20,6 @@ added flash messages to home.html
 doniaT -- 2018-01-10 14:01
 pushed board (but I'm going to change the colors)
 roll() and move() functions are like semi-working
+
+jonathanQ -- 2018-01-11 01:59:14
+completed a slotmachine for one player. I need to decide on a scoring mechanism
