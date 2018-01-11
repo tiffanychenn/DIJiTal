@@ -12,7 +12,7 @@ def root():
 
 @app.route('/board')
 def board():
-	return render_template('base.html')
+	return render_template('board.html')
 
 @app.route('/slots')
 def slots():

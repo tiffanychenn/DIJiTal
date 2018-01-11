@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <style>
+
+    #board{
+    width: width: 900px;
+    height: 600px;
+    position: relative;
+    border-style: solid;
+    border-color: black;
+    z-index: -1;
+    }
+
+    .boardTiles{
+    width:150px;
+    height:100px;
+    position: relative;
+    }
+    
+    #space1{
+    left:0px;
+    bottom: 0px;
+    background: blue;
+    }
+
+    #space2{
+    left : 150px;
+    bottom: 100px;
+    background: yellow;
+    }
+
+    #space3{
+    left : 300px;
+    bottom: 200px;
+    background: orange;
+    }
+
+    #space4{
+    left : 450px;
+    bottom: 300px;
+    background: purple;
+    }
+
+    #space5{
+    left : 600px;
+    bottom: 400px;
+    background: orange;
+    }
+    
+    #space6{
+    left : 750px;
+    bottom: 500px;
+    background: blue;
+    }
+    
+    #space7{
+    left : 900px;
+    bottom: 600px;
+    background: purple;
+    }
+    
+    #space8{
+    left : 900px;
+    bottom: 600px;
+    background: orange;
+    }
+    
+    #space9{
+    left : 900px;
+    bottom: 600px;
+    background: blue;
+    }
+    
+    #space10{
+    left : 900px;
+    bottom: 600px;
+    background: purple;
+    }
+
+    #space11{
+    left : 900px;
+    bottom: 600px;
+    background: yellow;
+    }
+    
+    #space12{
+    left : 900px;
+    bottom: 600px;
+    background: blue;
+    }
+
+    #space13{
+    left : 750px;
+    bottom: 700px;
+    background: orange;
+    }
+    
+    #space14{
+    left : 600px;
+    bottom: 800px;
+    background: blue;
+    }
+    
+    #space15{
+    left : 450px;
+    bottom: 900px;
+    background: purple;
+    }
+
+    #space16{
+    left : 300px;
+    bottom: 1000px;
+    background: yellow;
+    }
+    
+    #space17{
+    left : 150px;
+    bottom: 1100px;
+    background: blue;
+    }
+
+    #space18{
+    left = 0px;
+    bottom: 1200px;
+    background: orange;
+    }
+
+    #space19{
+    bottom: 1400px;
+    background: yellow;
+    }
+    
+    #space20{
+    bottom: 1600px;
+    background: purple;
+    }
+
+    #space21{
+    bottom: 1800px;
+    background: yellow;
+    }
+
+    #space22{
+    bottom: 2000px;
+    background: orange;
+    }
+
+    #player1 {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: red;
+    z-index: 5;
+    }
+
+    #player2 {
+    width: 30px;
+    height: 30px;
+    postion: absolute;
+    background-color:green;
+    z-index: 5;
+    }
+
+  </style>
+  <body>
+
+    <p>
+      <button onclick="roll()">Roll Dice</button> 
+    </p>
+
+    <div id="board">
+      <div id="space1" class="boardTiles">
+	<div id="player1"></div>
+      </div>
+      <div id="space2" class="boardTiles"> </div>
+      <div id="space3" class="boardTiles"> </div>
+      <div id="space4" class="boardTiles"> </div>
+      <div id="space5" class="boardTiles"> </div>
+      <div id="space6" class="boardTiles"> </div>
+      <div id="space7" class="boardTiles"> </div>
+      <div id="space8" class="boardTiles"> </div>
+      <div id="space9" class="boardTiles"> </div>
+      <div id="space10" class="boardTiles"> </div>
+      <div id="space11" class="boardTiles"> </div>
+      <div id="space12" class="boardTiles"> </div>
+      <div id="space13" class="boardTiles"> </div>
+      <div id="space14" class="boardTiles"> </div>
+      <div id="space15" class="boardTiles"> </div>
+      <div id="space16" class="boardTiles"> </div>
+      <div id="space17" class="boardTiles"> </div>
+      <div id="space18" class="boardTiles"> </div>
+      <div id="space19" class="boardTiles"> </div>
+      <div id="space20" class="boardTiles"> </div>
+      <div id="space21" class="boardTiles"> </div>
+      <div id="space22" class="boardTiles"> </div>
+
+	    
+    </div>
+    
+    	<script type="text/javascript" src="{{url_for('static',filename='js/board.js')}}">
+	</script>
+
+  </body>
+</html>
