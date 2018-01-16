@@ -1,82 +1,33 @@
 <!DOCTYPE html>
 
+<!--
+Following steps:
+
+2.5. add background for two sides
+3. add content behind each card 
+4. flip function, with animation (controled by mouse first)
+5. initializae keyboard action
+	* hover a card, highlight it 
+	* space / enter to flip 
+
+6. ......
+
+* timer function 
+* score (competing)
+* winning / losing page 
+
+-->
+
+
 <html>
   <head>
     <title>Memory Matching Game</title>
-    <!-- <link rel='stylesheet' href='static/css/memm.css'/> -->
-    <style>
-    .box {
-	width: 21%;
-	margin: 2%;
-	height: 250px;
-	position: relative;
-	perspective: 800px;
-	background-color: red;
-}
-
-.board {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	width: 100%;
-}
-
-.card {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	transform-style: preserve-3d;
-	transition: transform 1s;
-}
-
-.card div {
-	margin: 0;
-	display: block;
-	position: absolute;
-	width: 100%;
-	height: 100%;
-}
-
-.card1 div {
-	margin: 0;
-	display: block;
-	position: absolute;
-	width: 100%;
-	height: 100%;
-}
-
-.card .front {
-	background: url('back.jpg');
-	background-size: cover;
-	background-position: center;
-}
-
-.card1 .front {
-	background: url('back2.jpg');
-	background-size: cover;
-	background-position: center;
-}
-
-.card .back {
-	background: url('#');
-	background-size: cover;
-	background-position: center;
-	transform: rotateY(180deg);
-}
-
-.timer {
-	margin-left:10%;
-	height: 50px;
-	text-align: center;
-	font-weight: 200;
-	font-size: 38pt;
-}
-
-
-
-    </style>
+    <link rel='stylesheet' type = 'text/css' href='../static/css/memm.css'/>
+    
   </head>
   <body>
+  <div class='background'></div>
+
 
   <script src='static/js/memm.js'></script>
 
@@ -84,63 +35,95 @@
 
 	<section class='board'>
 
-	<div class = 'box'>
+	<div class = 'container'>
 		<div class = 'card1'>
 			<div class = 'front'></div>
 			<div class = 'back'></div>
 		</div>
 	</div>
 
-	<div class = 'box'>
+	<div class = 'container'>
 		<div class = 'card1'>
 			<div class = 'front'></div>
 			<div class = 'back'></div>
 		</div>
 	</div>
 
-	<div class = 'box'>
-		<div class = 'card'>
-			<div class = 'front'></div>
-			<div class = 'back'></div>
-		</div>
-	</div>
-
-	<div class = 'box'>
-		<div class = 'card'>
-			<div class = 'front'></div>
-			<div class = 'back'></div>
-		</div>
-	</div>
-
-	<div class = 'box'>
+	<div class = 'container'>
 		<div class = 'card1'>
 			<div class = 'front'></div>
 			<div class = 'back'></div>
 		</div>
 	</div>
 
-	<div class = 'box'>
+	<div class = 'container'>
+		<div class = 'card'>
+			<div class = 'front'></div>
+			<div class = 'back'></div>
+		</div>
+	</div>
+
+	<div class = 'container'>
+		<div class = 'card'>
+			<div class = 'front'></div>
+			<div class = 'back'></div>
+		</div>
+	</div>
+
+	<div class = 'container'>
+		<div class = 'card'>
+			<div class = 'front'></div>
+			<div class = 'back'></div>
+		</div>
+	</div>
+
+	<div class = 'container'>
 		<div class = 'card1'>
 			<div class = 'front'></div>
 			<div class = 'back'></div>
 		</div>
 	</div>
 
-	<div class = 'box'>
+	<div class = 'container'>
+		<div class = 'card1'>
+			<div class = 'front'></div>
+			<div class = 'back'></div>
+		</div>
+	</div>
+
+	<div class = 'container'>
+		<div class = 'card1'>
+			<div class = 'front'></div>
+			<div class = 'back'></div>
+		</div>
+	</div>
+
+	<div class = 'container'>
 		<div class = 'card'>
 			<div class = 'front'></div>
 			<div class = 'back'></div>
 		</div>
 	</div>
 
-	<div class = 'box'>
+	<div class = 'container'>
 		<div class = 'card'>
 			<div class = 'front'></div>
 			<div class = 'back'></div>
 		</div>
 	</div>
+
+	<div class = 'container'>
+		<div class = 'card'>
+			<div class = 'front'></div>
+			<div class = 'back'></div>
+		</div>
+	</div>
+
+
 
 	</section>
+	
+
 	<script>
 		var flipped1;
 		var flipped2;
@@ -172,6 +155,7 @@
 		}
 
 	</script>
+
 
 	</body>
 </html>
