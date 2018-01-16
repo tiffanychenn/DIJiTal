@@ -10,26 +10,21 @@ def closeDatabase(db):
     db.commit() #save changes
     db.close()  #close database
 
-def authenticate(game, passw):
+def authenticate(game):
     # checks to see if an inputted old game is in the database and playable 
     # (i.e. less than ten turns have been played)
     db, c = openDatabase()
-    cm = "SELECT passcode FROM games WHERE gameID = %d;" %game
+    cm = "SELECT turns FROM games WHERE passcode = %d;" %game
     x = c.execute(cm)
     boolean = False
     for i in x:
         boolean = True
-        passcode = int(i[0])
-        print passcode
-    if not boolean:
-        return 0, 0
-    cm = "SELECT turns FROM games WHERE gameID = %d;" %game
-    x = c.execute(cm)
-    for i in x:
         turns = int(i[0])
-        print turns
+        print boolean
+    if not boolean:
+        return 2
     closeDatabase(db)
-    return (passw == passcode) & (turns < 10), passw == passcode
+    return turns < 10
 
 def createGame():
     db, c = openDatabase()

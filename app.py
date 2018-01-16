@@ -25,16 +25,13 @@ def memm():
 @app.route('/oldGame', methods=["GET", "POST"])
 def oldGame():
 	game = int(request.form["game"])
-	passcode = int(request.form["passcode"])
-	boolean, passw = db.authenticate(game, passcode)
-	if boolean == 0:
+	boolean = db.authenticate(game)
+	if boolean == 2:
 		flash("Game ID does not exist.")
 	elif boolean:
-		return str(boolean)
-	elif passw:
-		flash("Game has already passed ten turns.")
+		return redirect(url_for("board"))
 	else:
-		flash("Game ID and passcode did not match.")
+		flash("Game has already passed ten turns.")
 	return redirect(url_for("root"))
 
 @app.route('/newGame', methods=["GET", "POST"])
