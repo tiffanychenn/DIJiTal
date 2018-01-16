@@ -39,15 +39,17 @@
 }
 
 .card .front {
-	background: url('back.jpg');
+	background: url('../../pics/back.jpg');
 	background-size: cover;
 	background-position: center;
 }
 
 .card1 .front {
-	background: url('back2.jpg');
-	background-size: cover;
+	background: url('../../pics/java.png');
+	background-size: cover; 
+	background-repeat: no-repeat;
 	background-position: center;
+
 }
 
 .card .back {
@@ -73,7 +75,16 @@
     left: 0;
     width: 50%;
     height: 100%;
-    background-color: pink; 
+    background-image: url('../../pics/playerback.png');
+}
+
+.background1 {
+    position: fixed;
+    top: 0;
+    left: 49.5%;
+    width: 50.5%;
+    height: 100%;
+    background-image: url('../../pics/player1back.jpeg');
 }
 
 
