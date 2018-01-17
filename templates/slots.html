@@ -5,34 +5,86 @@
 	<script type="text/javascript" src="static/js/slots.js">
 	</script>
 
+	<br>
+	<h5>Scoring guide: red=1 blue=1.5 green=2.0 yellow=2.5 black=3
+		<br>Match 2 and get a bonus of *5. Match 3 and get a bonus of *10
+		<br>Player 1 controls: W-starts left slot, A S D-stop left to right slots
+		<br>Player 2 controls: I-starts right slot, J K L - stop left to right slots
+	</h5> 
 
-	<div id = "container" style = "background-color:black;width:350px;height:400px;position:relative;">
-		<div id = "leftWheel0" style = "background-color:red;width:100px;height:100px;position:absolute;">
-		</div>
-		<div id = "leftWheel1" style = "background-color:blue;width:100px;height:100px;position:absolute;">
-		</div>
-		<div id = "leftWheel2" style = "background-color:green;width:100px;height:100px;position:absolute;">
-		</div>
-		<div id = "leftWheel3" style = "background-color:yellow;width:100px;height:100px;position:absolute;">
-		</div>
-		<div id = "middleWheel0" style = "background-color:red;width:100px;height:100px;position:absolute;right:150px;">
-		</div>
-		<div id = "middleWheel1" style = "background-color:blue;width:100px;height:100px;position:absolute;right:150px;">
-		</div>
-		<div id = "middleWheel2" style = "background-color:green;width:100px;height:100px;position:absolute;right:150px;">
-		</div>
-		<div id = "middleWheel3" style = "background-color:yellow;width:100px;height:100px;position:absolute;right:150px;">
-		</div>
-		<div id = "rightWheel0" style = "background-color:red;width:100px;height:100px;position:absolute;right:50px;">
-		</div>
-		<div id = "rightWheel1" style = "background-color:blue;width:100px;height:100px;position:absolute;right:50px;">
-		</div>
-		<div id = "rightWheel2" style = "background-color:green;width:100px;height:100px;position:absolute;right:50px;">
-		</div>
-		<div id = "rightWheel3" style = "background-color:yellow;width:100px;height:100px;position:absolute;right:50px;">
-		</div>
-		<div id = "marker" style = "background-color:grey;width:50px;height:400px;position:absolute;right:0px;"></div>
-		<div id = "marker" style = "background-color:cyan;width:50px;height:10px;position:absolute;right:0px;top:190px;"></div>
-	</div>
-	<h2 id = "p1Results"></h2>
+	<br>
+	
+	<table>
+		<tr>
+			<td>
+				<div id = "container" style = "background-color:black;width:350px;height:400px;position:relative;">
+				<div id = "leftWheel0" style = "background-color:red;width:100px;height:100px;position:absolute;">
+				</div>
+				<div id = "leftWheel1" style = "background-color:blue;width:100px;height:100px;position:absolute;">
+				</div>
+				<div id = "leftWheel2" style = "background-color:green;width:100px;height:100px;position:absolute;">
+				</div>
+				<div id = "leftWheel3" style = "background-color:yellow;width:100px;height:100px;position:absolute;">
+				</div>
+				<div id = "middleWheel0" style = "background-color:red;width:100px;height:100px;position:absolute;right:150px;">
+				</div>
+				<div id = "middleWheel1" style = "background-color:blue;width:100px;height:100px;position:absolute;right:150px;">
+				</div>
+				<div id = "middleWheel2" style = "background-color:green;width:100px;height:100px;position:absolute;right:150px;">
+				</div>
+				<div id = "middleWheel3" style = "background-color:yellow;width:100px;height:100px;position:absolute;right:150px;">
+				</div>
+				<div id = "rightWheel0" style = "background-color:red;width:100px;height:100px;position:absolute;right:50px;">
+				</div>
+				<div id = "rightWheel1" style = "background-color:blue;width:100px;height:100px;position:absolute;right:50px;">
+				</div>
+				<div id = "rightWheel2" style = "background-color:green;width:100px;height:100px;position:absolute;right:50px;">
+				</div>
+				<div id = "rightWheel3" style = "background-color:yellow;width:100px;height:100px;position:absolute;right:50px;">
+				</div>
+				<div id = "marker" style = "background-color:grey;width:50px;height:400px;position:absolute;right:0px;"></div>
+				<div id = "marker" style = "background-color:cyan;width:50px;height:10px;position:absolute;right:0px;top:190px;"></div>
+				</div>
+				<h2 id = "p1Results"></h2>
+				<h2 id = "p1Score"></h2>
+				</div>
+			</td>
+			<td>
+				<div id = "container" style = "background-color:black;width:350px;height:400px;position:relative;">
+				<div id = "2leftWheel0" style = "background-color:red;width:100px;height:100px;position:absolute;">
+				</div>
+				<div id = "2leftWheel1" style = "background-color:blue;width:100px;height:100px;position:absolute;">
+				</div>
+				<div id = "2leftWheel2" style = "background-color:green;width:100px;height:100px;position:absolute;">
+				</div>
+				<div id = "2leftWheel3" style = "background-color:yellow;width:100px;height:100px;position:absolute;">
+				</div>
+				<div id = "2middleWheel0" style = "background-color:red;width:100px;height:100px;position:absolute;right:150px;">
+				</div>
+				<div id = "2middleWheel1" style = "background-color:blue;width:100px;height:100px;position:absolute;right:150px;">
+				</div>
+				<div id = "2middleWheel2" style = "background-color:green;width:100px;height:100px;position:absolute;right:150px;">
+				</div>
+				<div id = "2middleWheel3" style = "background-color:yellow;width:100px;height:100px;position:absolute;right:150px;">
+				</div>
+				<div id = "2rightWheel0" style = "background-color:red;width:100px;height:100px;position:absolute;right:50px;">
+				</div>
+				<div id = "2rightWheel1" style = "background-color:blue;width:100px;height:100px;position:absolute;right:50px;">
+				</div>
+				<div id = "2rightWheel2" style = "background-color:green;width:100px;height:100px;position:absolute;right:50px;">
+				</div>
+				<div id = "2rightWheel3" style = "background-color:yellow;width:100px;height:100px;position:absolute;right:50px;">
+				</div>
+				<div id = "marker" style = "background-color:grey;width:50px;height:400px;position:absolute;right:0px;"></div>
+				<div id = "marker" style = "background-color:cyan;width:50px;height:10px;position:absolute;right:0px;top:190px;"></div>
+				</div>
+				<h2 id = "p2Results"></h2>
+				<h2 id = "p2Score"></h2>
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+	<div id = "reportResults"></div>
+
 </body>
