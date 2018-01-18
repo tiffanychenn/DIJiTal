@@ -1,60 +1,107 @@
-var pos = 0;
+var xpos = 0;
+var ypos = 0;
 var direction = "right";
 
 function right(){
     var elem = document.getElementById("player1");
-    var endpt = pos + 150;
+    var endpt = xpos + 150;
     var id = setInterval(frame, 10);
     function frame() {
-	if (pos == endpt) {
+	if (xpos == endpt) {
 	    clearInterval(id);
 	} else {
-	    pos++; 
-	    elem.style.left = pos + 'px';
+	    xpos++; 
+	    elem.style.left = xpos + 'px';
 	}
     }
 }
 
 function left(){
     var elem = document.getElementById("player1");
-    var endpt = pos + 150;
+    var endpt = xpos - 150;
     var id = setInterval(frame, 10);
     function frame() {
-	if (pos == endpt) {
+	if (xpos == endpt) {
 	    clearInterval(id);
 	} else {
-	    pos++; 
-	    elem.style.right = pos + 'px';
-	    console.log(pos);
-	}
+	    xpos--; 
+	    elem.style.left = xpos + 'px';
+	} 
     }
 }
 
 function down() {
     var elem = document.getElementById("player1");   
-    var endpt = pos + 100;
+    var endpt = ypos + 100;
     var id = setInterval(frame, 10);
     function frame() {
-	if (pos == endpt) {
+	if (ypos == endpt) {
 	    clearInterval(id);
 	} else {
-	    pos++; 
-	    elem.style.top = pos + 'px';
+	    ypos++; 
+	    elem.style.top = ypos + 'px';
 	}
     }
 }
 
 
 function up(){
-    var elem = document.getElementById("player1");   
-    var endpt = pos + 100;
+    var elem = document.getElementById("player1");
+    var endpt = ypos - 100;
     var id = setInterval(frame, 10);
     function frame() {
-	if (pos == endpt) {
+	if (ypos == endpt) {
 	    clearInterval(id);
 	} else {
-	    pos++; 
-	    elem.style.bottom = pos + 'px'; 
+	    ypos--; 
+	    elem.style.top = ypos + 'px';
+	}
+    }
+}
+
+
+
+
+
+function move(){
+    if (direction == "right"){
+	if (xpos == 900){
+	    direction = "down";
+	    ypos = 0;
+	    down();
+	}
+	else {
+	    right();
+	}
+    }
+    else if (direction == "left"){
+	if (xpos == 0){
+	    direction = "up";
+	    ypos = 500;
+	    up();
+	}
+	else {
+	    left();
+	}
+    }
+    else if (direction == "down"){
+	if (ypos == 500){
+	    direction = "left";
+	    xpos = 900;
+	    left();
+	}
+	else {
+	    down();
+	}
+    }
+    else if (direction == "up"){
+	if (ypos == 0){
+	    direction = "right";
+	    xpos = 0;
+	    right();
+	}
+	else {
+	    up();
 	}
     }
 }
@@ -63,93 +110,11 @@ function roll(){
     var num = Math.floor(Math.random() * 6) + 1;
     console.log(num);
     while (num > 0){
-	move();
+	console.log(num);
+	setTimeout(move(), 30000);
+	console.log("move");
 	num --;
     }
-
 }
-
-
-function move(){
-    if (direction == "right"){
-	if (pos == 300){
-	    direction = "down";
-	    pos = 0;
-	    console.log(pos);
-	    console.log(direction);
-	    down();
-	}
-	else {
-	    right();
-	    console.log(pos);
-	    console.log(direction);
-	}
-    }
-    else if (direction = "down"){
-	if (pos == 300){
-	    direction = "left";
-	    pos = 300;
-	    console.log(pos);
-	    console.log(direction);
-	    left();
-	}
-	else {
-	    down();
-	    console.log(pos);
-	    console.log(direction);
-	}
-    }
-    else if (direction == "left"){
-	if (pos == 900){
-	    direction = "up";
-	    pos = 0;
-	    console.log(pos);
-	    console.log(direction);
-	    up();
-	}
-	else {
-	    left();
-	    console.log(pos);
-	    console.log(direction);
-	}
-    }
-    else if (direction = "up"){
-	if (pos == 600){
-	    direction = "right";
-	    pos = 0;
-	    right();
-	}
-	else {
-	    up();
-	    console.log(pos);
-	    console.log(direction);
-	}
-    }
-}
-    
-    
-	/*if (pos == 600){
-	    direction = "left";
-	    console.log(direction);
-	    
-	}
-	else {
-	    down();
-	    console.log(direction);
-	    console.log(pos);
-	}
-    }
-    else if (direction = "left"){
-	if (pos != 900){
-	    left();
-	}
-	else{
-	    direction = "up";
-	}
-    }
-    else {
-	direction = "right";
-	console.log(direction);
-    }*/
-
+   
 
