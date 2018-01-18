@@ -45,9 +45,8 @@
 }
 
 .card1 .front {
-	background: url('../../pics/java.png');
+	background: url('../../pics/back1.jpg');
 	background-size: cover; 
-	background-repeat: no-repeat;
 	background-position: center;
 
 }
