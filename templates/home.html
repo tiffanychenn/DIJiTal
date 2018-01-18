@@ -7,38 +7,52 @@
 {% block body %}
 
 {% set messages = get_flashed_messages() %}
-{% for message in messages %}
-<h3>
-    {{message}}
-</h3>
-{% endfor %}
 
-<h2>Welcome to our Mario Party!</h2>
-<h3>About:</h3>
-<p>Two players will play on the same computer for 10 turns (may allow players to choose the amount of turns if we have time). Each player starts with 20 coins. In every turn, each player will roll the die and land on a spot where they will gain/lose a certain amount of coins. After each player traverses the board, a minigame will randomly be selected for them to play. The winner of the minigame will receive 5 (amount subject to change) coins. The player with the most coins at the end wins.</p>
-<h3>Start a new game here!</h3>
-<form method="POST" action="/newGame">
-    <button class="button" type="submit" value="Submit">Let's play!</button>
-</form>
-<h3>Continue an old game here!</h3>
-<form data-abide novalidate method="POST" action="/oldGame">
-  <div class="row">
-    <div class="columns">
-      <div data-abide-error class="alert callout" style="display: none;">
-        <p><i class="fi-alert"></i> There are some errors in your form.</p>
+<h2 style="font-family: impact; letter-spacing: 2px;">Welcome to our Mario Party!</h2>
+<div class="grid-x grid-margin-x">
+  <div class="cell small-8">
+    <h3 style="font-family: verdana; text-align: justify;">About:</h3>
+    <p>Two players will play on the same computer for 10 turns. Each player starts with 20 coins. In every turn, each player will roll the die and land on a spot where they will gain/lose a certain amount of coins. After each player traverses the board, a minigame will randomly be selected for them to play. The winner of the minigame will receive 10 coins. The player with the most coins at the end wins.</p>
+    <div class="grid-x grid-margin-x" style="text-align: center;">
+      <div class="cell small-6">
+        <h4 style="font-family: verdana;">Player 1 (Mario):</h4><br><img src="../static/marioprofile.png"><br><br>
+      </div>
+      <div class="cell small-6">
+        <h4 style="font-family: verdana;">Player 2 (Luigi):</h4><br><img src="../static/luigiprofile.png"><br><br>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="small-12 columns">
-      <label>Game ID
-        <input type="text" name="game" placeholder="1234" aria-describedby="exampleHelpText" required pattern="number">
-        <span class="form-error">
-          This has to be a number!
-        </span>
-      </label>
-    </div>
-    <button class="button" type="submit" value="Submit">Let's play!</button>
+  <div class="cell small-4" style="text-align: center; margin: auto;">
+    <h3 style="font-family: verdana;">Start a new game here!</h3>
+    <form method="POST" action="/newGame">
+      <button class="button" type="submit" value="Submit" style="background-color: #00A676; border-radius: 8px;">Let's play!</button>
+    </form>
+    <h3 style="font-family: verdana;">Continue an old game here!</h3>
+    <form data-abide novalidate method="POST" action="/oldGame">
+      <div class="row">
+        <div class="columns">
+          {% for message in messages %}
+            <div class="alert callout">
+              <p><i class="fi-alert"></i>{{message}}</p>
+            </div>
+          {% endfor %}
+          <div data-abide-error class="alert callout" style="display: none;">
+            <p><i class="fi-alert"></i> There are some errors in your form.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="small-12 columns">
+          <label>Game ID
+            <input type="text" name="game" placeholder="1234" aria-describedby="exampleHelpText" required pattern="number">
+            <span class="form-error">
+              This has to be a number!
+            </span>
+          </label>
+        </div>
+        <button class="button" type="submit" value="Submit" style="background-color: #EB5E55; border-radius: 8px;">Let's play!</button>
+      </div>
+    </form>
   </div>
-</form>
+</div>
 {% endblock %}
