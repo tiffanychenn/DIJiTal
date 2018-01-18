@@ -26,3 +26,6 @@ completed a slotmachine for one player. I need to decide on a scoring mechanism
 
 tiffanyC -- 2018-01-15 22:55
 added css and made changes to database.py and the forms
+
+tungD -- 2018-01-18 18:00
+move() works now, so movement around the whole board is possible. 
