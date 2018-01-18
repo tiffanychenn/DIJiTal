@@ -4,11 +4,17 @@ var timepassed;
 
 function setBoard(){
     var card = document.getElementsByClassName('card');
-    var pics = ["url('images/100.jpg')", "url('images/101.jpg')", "url('images/102.jpg')", "url('images/103.jpg')", "url('images/104.jpg')", "url('images/105.jpg')", "url('images/106.jpg')", "url('images/107.jpg')", "url('images/100.jpg')", "url('images/101.jpg')", "url('images/102.jpg')", "url('images/103.jpg')", "url('images/104.jpg')", "url('images/105.jpg')", "url('images/106.jpg')", "url('images/107.jpg')"];
+    var pics = ["url('../../pics/1.png')", "url('../../pics/2.png')", "url('../../pics/3.png')", "url('../../pics/4.png')", "url('../../pics/5.png')", "url('../../pics/6.png')"];
 
     timepassed = 59;
     flipped1 = [];
     flipped2 = [];
+
+    shuffle(pics);
+
+    for (var i = 0; i < card.length; i++){
+    	if(card[i].)
+    }
 
 }
 
