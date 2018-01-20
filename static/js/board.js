@@ -1,9 +1,17 @@
 var xpos = 0;
 var ypos = 0;
 var direction = "right";
+var num;
+var myVar;
+var turn = "red";
 
 function right(){
-    var elem = document.getElementById("player1");
+    if (turn == "red"){
+	var elem = document.getElementById("player1");
+    }
+    else{
+	var elem = document.getElementById("player2");
+    }
     var endpt = xpos + 150;
     var id = setInterval(frame, 10);
     function frame() {
@@ -17,7 +25,14 @@ function right(){
 }
 
 function left(){
+     if (turn == "red"){
+	var elem = document.getElementById("player1");
+    }
+    else{
+	var elem = document.getElementById("player2");
+    }
     var elem = document.getElementById("player1");
+    var elem = document.getElementById("player2");
     var endpt = xpos - 150;
     var id = setInterval(frame, 10);
     function frame() {
@@ -31,7 +46,13 @@ function left(){
 }
 
 function down() {
-    var elem = document.getElementById("player1");   
+     if (turn == "red"){
+	var elem = document.getElementById("player1");
+    }
+    else{
+	var elem = document.getElementById("player2");
+    }
+    var elem = document.getElementById("player1");
     var endpt = ypos + 100;
     var id = setInterval(frame, 10);
     function frame() {
@@ -46,6 +67,12 @@ function down() {
 
 
 function up(){
+     if (turn == "red"){
+	var elem = document.getElementById("player1");
+    }
+    else{
+	var elem = document.getElementById("player2");
+    }
     var elem = document.getElementById("player1");
     var endpt = ypos - 100;
     var id = setInterval(frame, 10);
@@ -107,14 +134,32 @@ function move(){
 }
 
 function roll(){
-    var num = Math.floor(Math.random() * 6) + 1;
+    num = Math.floor(Math.random() * 6) + 1;
     console.log(num);
-    while (num > 0){
+    myVar  = setInterval(help, 1800);
+}
+
+
+function help(){
+    if (num > 0){
 	console.log(num);
-	setTimeout(move(), 30000);
-	console.log("move");
-	num --;
+	move();
+	num--;
+    }
+    else{
+	clearInterval(myVar);
+	if (turn == "red"){
+	    console.log(turn);
+	    turn = "green";
+	    console.log(turn);
+	}
+	else{
+	    console.log(turn);
+	    turn = "red";
+	    console.log(turn);
+	}
     }
 }
+
    
 
