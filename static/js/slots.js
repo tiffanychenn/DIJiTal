@@ -182,9 +182,11 @@ var playerControls = function(pressEvent){
 	if (pressEvent.key == "d" && p1Toggle == true){
 		pRight[0]=true;
 	}
-	if (pressEvent.key == "w" && p1Toggle == false){
+	if (pressEvent.key == "y" && p1Toggle == false && p2Toggle == false){
 		p1Toggle = true;
+		p2Toggle = true;
 		animateLeft();
+		animateRight();
 	}
 	if (pMiddle[0] && pLeft[0] && pRight[0]){
 		calculateScore(p1Results,"p1Score");
@@ -198,10 +200,6 @@ var playerControls = function(pressEvent){
 	}
 	if (pressEvent.key == "l" && p2Toggle == true){
 		pRight[1]=true;
-	}
-	if (pressEvent.key == "i" && p2Toggle == false){
-		p2Toggle = true;
-		animateRight();
 	}
 	if (pMiddle[1] && pLeft[1] && pRight[1]){
 		calculateScore(p2Results,"p2Score");
