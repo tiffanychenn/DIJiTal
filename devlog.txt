@@ -28,4 +28,8 @@ tiffanyC -- 2018-01-15 22:55
 added css and made changes to database.py and the forms
 
 tungD -- 2018-01-18 18:00
-move() works now, so movement around the whole board is possible. 
+move() works now, so movement around the whole board is possible.
+
+jonathanQ -- 2018-01-20 22:47
+The block jumping game based loosely off the google chrome dino game
+is done
