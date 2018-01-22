@@ -1,165 +1,267 @@
-var xpos = 0;
-var ypos = 0;
-var direction = "right";
+var xposr = 0;
+var yposr = 0;
+var directionr = "right";
 var num;
-var myVar;
-var turn = "red";
+var myVarr;
+var xposg = 0;
+var yposg = 0;
+var directiong = "right";
+var num;
+var myVarg;
 
-function right(){
-    if (turn == "red"){
-	var elem = document.getElementById("player1");
-    }
-    else{
-	var elem = document.getElementById("player2");
-    }
-    var endpt = xpos + 150;
+
+function rightr(){
+    var elem = document.getElementById("player1");
+    var endpt = xposr + 150;
     var id = setInterval(frame, 10);
     function frame() {
-	if (xpos == endpt) {
+	if (xposr == endpt) {
 	    clearInterval(id);
 	} else {
-	    xpos++; 
-	    elem.style.left = xpos + 'px';
+	    xposr++; 
+	    elem.style.left = xposr + 'px';
 	}
     }
 }
 
-function left(){
-     if (turn == "red"){
-	var elem = document.getElementById("player1");
-    }
-    else{
-	var elem = document.getElementById("player2");
-    }
+function leftr(){
     var elem = document.getElementById("player1");
-    var elem = document.getElementById("player2");
-    var endpt = xpos - 150;
+    var endpt = xposr - 150;
     var id = setInterval(frame, 10);
     function frame() {
-	if (xpos == endpt) {
+	if (xposr == endpt) {
 	    clearInterval(id);
 	} else {
-	    xpos--; 
-	    elem.style.left = xpos + 'px';
+	    xposr--; 
+	    elem.style.left = xposr + 'px';
 	} 
     }
 }
 
-function down() {
-     if (turn == "red"){
-	var elem = document.getElementById("player1");
-    }
-    else{
-	var elem = document.getElementById("player2");
-    }
+function downr() {
     var elem = document.getElementById("player1");
-    var endpt = ypos + 100;
+    var endpt = yposr + 100;
     var id = setInterval(frame, 10);
     function frame() {
-	if (ypos == endpt) {
+	if (yposr == endpt) {
 	    clearInterval(id);
 	} else {
-	    ypos++; 
-	    elem.style.top = ypos + 'px';
+	    yposr++; 
+	    elem.style.top = yposr + 'px';
 	}
     }
 }
 
 
-function up(){
-     if (turn == "red"){
-	var elem = document.getElementById("player1");
-    }
-    else{
-	var elem = document.getElementById("player2");
-    }
+function upr(){
     var elem = document.getElementById("player1");
-    var endpt = ypos - 100;
+    var endpt = yposr - 100;
     var id = setInterval(frame, 10);
     function frame() {
-	if (ypos == endpt) {
+	if (yposr == endpt) {
 	    clearInterval(id);
 	} else {
-	    ypos--; 
-	    elem.style.top = ypos + 'px';
+	    yposr--; 
+	    elem.style.top = yposr + 'px';
 	}
     }
 }
 
 
-
-
-
-function move(){
-    if (direction == "right"){
-	if (xpos == 900){
-	    direction = "down";
-	    ypos = 0;
-	    down();
+function mover(){
+    if (directionr == "right"){
+	if (xposr == 900){
+	    directionr = "down";
+	    yposr = 0;
+	    downr();
 	}
 	else {
-	    right();
+	    rightr();
 	}
     }
-    else if (direction == "left"){
-	if (xpos == 0){
-	    direction = "up";
-	    ypos = 500;
-	    up();
+    else if (directionr == "left"){
+	if (xposr == 0){
+	    directionr = "up";
+	    yposr = 500;
+	    upr();
 	}
 	else {
-	    left();
+	    leftr();
 	}
     }
-    else if (direction == "down"){
-	if (ypos == 500){
-	    direction = "left";
-	    xpos = 900;
-	    left();
+    else if (directionr == "down"){
+	if (yposr == 500){
+	    directionr = "left";
+	    xposr = 900;
+	    leftr();
 	}
 	else {
-	    down();
+	    downr();
 	}
     }
-    else if (direction == "up"){
-	if (ypos == 0){
-	    direction = "right";
-	    xpos = 0;
-	    right();
+    else if (directionr == "up"){
+	if (yposr == 0){
+	    directionr = "right";
+	    xposr = 0;
+	    rightr();
 	}
 	else {
-	    up();
+	    upr();
 	}
     }
 }
 
-function roll(){
+function rollr(){
     num = Math.floor(Math.random() * 6) + 1;
     console.log(num);
-    myVar  = setInterval(help, 1800);
+    mover();
+    num--;
+    myVarr  = setInterval(helpr, 1800);
 }
 
 
-function help(){
+function helpr(){
     if (num > 0){
 	console.log(num);
-	move();
+	mover();
 	num--;
     }
     else{
-	clearInterval(myVar);
-	if (turn == "red"){
-	    console.log(turn);
-	    turn = "green";
-	    console.log(turn);
-	}
-	else{
-	    console.log(turn);
-	    turn = "red";
-	    console.log(turn);
+	clearInterval(myVarr);
+    }
+}
+
+
+function rightg(){
+    var elem = document.getElementById("player2");
+    var endpt = xposg + 150;
+    var id = setInterval(frame, 10);
+    function frame() {
+	if (xposg == endpt) {
+	    clearInterval(id);
+	} else {
+	    xposg++; 
+	    elem.style.left = xposg + 'px';
 	}
     }
 }
 
-   
+function leftg(){
+    var elem = document.getElementById("player2");
+    var endpt = xposg - 150;
+    var id = setInterval(frame, 10);
+    function frame() {
+	if (xposg == endpt) {
+	    clearInterval(id);
+	} else {
+	    xposg--; 
+	    elem.style.left = xposg + 'px';
+	} 
+    }
+}
+
+function downg() {
+    var elem = document.getElementById("player2");
+    var endpt = yposg + 100;
+    var id = setInterval(frame, 10);
+    function frame() {
+	if (yposg == endpt) {
+	    clearInterval(id);
+	} else {
+	    yposg++; 
+	    elem.style.top = yposg + 'px';
+	}
+    }
+}
+
+
+function upg(){
+    var elem = document.getElementById("player2");
+    var endpt = yposg - 100;
+    var id = setInterval(frame, 10);
+    function frame() {
+	if (yposg == endpt) {
+	    clearInterval(id);
+	} else {
+	    yposg--; 
+	    elem.style.top = yposg + 'px';
+	}
+    }
+}
+
+
+function moveg(){
+    if (directiong == "right"){
+	if (xposg == 900){
+	    directiong = "down";
+	    yposg = 0;
+	    downg();
+	}
+	else {
+	    rightg();
+	}
+    }
+    else if (directiong == "left"){
+	if (xposg == 0){
+	    directiong = "up";
+	    yposg = 500;
+	    upg();
+	}
+	else {
+	    leftg();
+	}
+    }
+    else if (directiong == "down"){
+	if (yposg == 500){
+	    directiong = "left";
+	    xposg = 900;
+	    leftg();
+	}
+	else {
+	    downg();
+	}
+    }
+    else if (directiong == "up"){
+	if (yposg == 0){
+	    directiong = "right";
+	    xposg = 0;
+	    rightg();
+	}
+	else {
+	    upg();
+	}
+    }
+}
+
+function rollg(pressEvent){
+    num = Math.floor(Math.random() * 6) + 1;
+    console.log(num);
+    moveg();
+    num--;
+    myVarg  = setInterval(helpg, 1800);
+}
+
+
+function helpg(){
+    if (num > 0){
+	console.log(num);
+	moveg();
+	num--;
+    }
+    else{
+	clearInterval(myVarg);
+    }
+}
+
+function roll(pressEvent){
+    if (pressEvent.code == "KeyS"){
+	rollr();
+    }
+    else if (pressEvent.code == "KeyK"){
+	rollg();
+    }
+}
+
+document.addEventListener("keypress", roll);
+
 

@@ -147,30 +147,27 @@
     #player1 {
     width: 50px;
     height: 50px;
-    position: absolute;
     background-color: red;
+    position: absolute;
     z-index: 5;
     }
 
     #player2 {
     width: 50px;
     height: 50px;
-    postion: absolute;
-    background-color:lawngreen;
+    background-color: lawngreen;
+    position: absolute;
     z-index: 5;
     }
 
   </style>
   <body>
 
-    <p>
-      <button onclick="roll()">Roll Dice</button> 
-    </p>
 
     <div id="board">
       <div id="space1" class="boardTiles">
+	<div id="player2"> </div>
 	<div id="player1"></div>
-	<div id="player2"></div>
       </div>
       <div id="space2" class="boardTiles"> </div>
       <div id="space3" class="boardTiles"> </div>
@@ -197,7 +194,6 @@
       
     </div> 
     <script type="text/javascript" src="../static/js/board.js">
-	    </script>
-
+    </script>
   </body>
 </html>
