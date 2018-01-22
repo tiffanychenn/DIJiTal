@@ -30,6 +30,9 @@ added css and made changes to database.py and the forms
 tungD -- 2018-01-18 18:00
 move() works now, so movement around the whole board is possible.
 
+tungD -- 2018-01-20 14:00
+roll() works for one player
+
 jonathanQ -- 2018-01-20 22:47
 The block jumping game based loosely off the google chrome dino game
 is done
@@ -37,3 +40,6 @@ is done
 jonathanQ -- 2018-01-20 22:50
 Put in instruction text for the jumping game and both the slots game
 and the dino jumping game now report who won the game.
+
+tungD -- 2018-01-022 12:30
+board works for two players!
