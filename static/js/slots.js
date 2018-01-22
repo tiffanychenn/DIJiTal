@@ -18,6 +18,7 @@ pMiddle = [false,false];
 pRight = [false,false];
 
 var pScores = {"p1Score":0,"p2Score":0};
+var pBuggedScore = {"p1Score":0,"p2Score":0};
 
 
 var verticalPosRedToResult = function(slotArray){
@@ -28,7 +29,7 @@ var verticalPosRedToResult = function(slotArray){
 		topString = topString.slice(0,topString.length-2);
 		arrayOfSimilarity[i]=parseFloat(topString)-200;
 	}
-	console.log(arrayOfSimilarity);
+	//console.log(arrayOfSimilarity);
 
 	var colorIndex = -1;
 	for (i=0;i<4;i++){
@@ -36,20 +37,25 @@ var verticalPosRedToResult = function(slotArray){
 			colorIndex = i;
 		}
 	}
-	console.log(colorIndex + "colorIndex");	
+	//console.log(colorIndex + "colorIndex");	
 	if (colorIndex==0){
+		console.log("red");
 		return "red";
 	}
 	if (colorIndex==1){
+		console.log("blue");
 		return "blue";
 	}	
 	if (colorIndex==2){
+		console.log("green");
 		return "green";
 	}
 	if (colorIndex==3){
+		console.log("yellow");
 		return "yellow";
 	}
 
+	console.log("black");
 	return "black";
 }
 
@@ -99,6 +105,8 @@ var animateVertical = function(wheelDivCol,speedDelta,pIndex){
 				}
 				if (wheelDivCol == additionalString + "rightWheel"){
 					pResults[pIndex][2]=verticalPosRedToResult(slotArray);
+					console.log("rightWheel calculated");
+					console.log(pResults[pIndex][2]);
 				}
 				document.getElementById("p1Results").innerText = p1Results[0] + " " + p1Results[1] + " " + p1Results[2];
 				document.getElementById("p2Results").innerText = p2Results[0] + " " + p2Results[1] + " " + p2Results[2];
@@ -143,25 +151,36 @@ var calculateScore = function(resultsArray,scoreDivId){
 	var score = 0;
 	for (i=0; i<resultsArray.length;i++){
 		var theColor = resultsArray[i];
+		//console.log(resultsArray);
+		//console.log(theColor);
 		if (theColor =="red"){
-			score+=1.0;
+			score=score+1.0;
+			pBuggedScore[scoreDivId]+=1.0;
 		}
 		if (theColor == "blue"){
-			score+=1.5;
+			score=score+1.5;
+			pBuggedScore[scoreDivId]+=1.5;
 		}
 		if (theColor == "green"){
-			score+=2.0;
+			score=score+2.0;
+			pBuggedScore[scoreDivId]+=2.0;
 		}	
 		if (theColor == "yellow"){
-			score+=2.0;
+			score=score+2.5;
+			pBuggedScore[scoreDivId]+=2.5;
 		}
 		if (theColor == "black"){
-			score+=2.5;
+			score=score+3.0;
+			pBuggedScore[scoreDivId]+=3.0;
 		}
+		//console.log("score in lieu" + score);
+		//console.log(pBuggedScore);
+		//console.log(pResults);
 	}
-	console.log(score);
-	console.log(multiplier);
+	//console.log("score:" + score);
+	//console.log("multiplier:" + multiplier);
 	pScores[scoreDivId]=score;
+	pBuggedScore[scoreDivId]=pBuggedScore[scoreDivId] * multiplier;
 	var score = document.getElementById(scoreDivId).innerText = "score: " + (score * multiplier);
 
 }
@@ -189,11 +208,11 @@ var playerControls = function(pressEvent){
 		animateRight();
 	}
 	if (pMiddle[0] && pLeft[0] && pRight[0]){
-		calculateScore(p1Results,"p1Score");
+		//calculateScore(p1Results,"p1Score");
 	}
 	
 	if (pressEvent.key == "k" && p2Toggle == true){		
-		pMiddle[1] = true;	
+		pMiddle[1] = true;
 	}
 	if (pressEvent.key == "j" && p2Toggle == true){
 		pLeft[1] = true;
@@ -201,13 +220,29 @@ var playerControls = function(pressEvent){
 	if (pressEvent.key == "l" && p2Toggle == true){
 		pRight[1]=true;
 	}
-	if (pMiddle[1] && pLeft[1] && pRight[1]){
-		calculateScore(p2Results,"p2Score");
+	if (pMiddle[1] && pLeft[1] && pRight[1]&&pMiddle[0] && pLeft[0] && pRight[0]){
+		var resultsArray1 = ["","",""];
+		for (i=0;i<3;i++){
+			resultsArray1[i]=pResults[0][i];
+		}
+		var resultsArray2 = ["","",""];
+		for (i=0;i<3;i++){
+			console.log(pResults[1][i]);
+			resultsArray2[i]=pResults[1][i];
+		}
+		//console.log(resultsArray1 + " aweqweqwe " + resultsArray2);
+		
+		calculateScore(resultsArray1,"p1Score");
+		//pResults[1][2]=verticalPosRedToResult(document.getElementById("2RightWheell");)
+		calculateScore(resultsArray2,"p2Score");
+		console.log("scores calculated");
 	}
 	
 	
 	if (pScores["p1Score"] != 0 && pScores["p2Score"] != 0){
 		var winner = 0;
+		calculateScore(pResults[1],"p2Score");
+		console.log('report scores');
 		if (pScores['p2Score'] > pScores['p1Score']){
 			winner =1;
 		}
