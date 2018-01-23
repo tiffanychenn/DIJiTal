@@ -16,7 +16,6 @@ def root():
 
 @app.route('/board')
 def board():
-    positioning = "<div id='player2'></div> <div id='player1'></div>"
     posm = "pos" + str(db.getPosition(session["id"],0)[0]+ 1)
     posl = "pos" + str(db.getPosition(session["id"],1)[0]+ 1)
     return render_template('board.html', pos_mario = posm, pos_luigi = posl)

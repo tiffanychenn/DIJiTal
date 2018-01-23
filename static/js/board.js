@@ -10,6 +10,7 @@ var num;
 var myVarg;
 var mario = false;
 var luigi = false;
+var canPress = false;
 var minigame;
 var y = document.createElement("INPUT");
 
@@ -140,6 +141,7 @@ function rollr(){
     mover();
     num--;
     myVarr  = setInterval(helpr, 1800);
+    canPress = true;
 }
 
 
@@ -290,7 +292,7 @@ function roll(pressEvent){
 		rollr();
 		mario = true;
     }
-    else if (pressEvent.code == "KeyK"){
+    else if (pressEvent.code == "KeyK" && canPress){
 		rollg();
 		luigi = true;
     }
