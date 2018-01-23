@@ -21,14 +21,23 @@ def board():
 
 @app.route('/slots')
 def slots():
-	return render_template('slots.html')
+	spotsdict = request.args.to_dict()
+	posm = spotsdict["player1"]
+	posl = spotsdict["player2"]
+	return render_template('slots.html', player1 = posm, player2 = posl)
 
 @app.route('/memm')
 def memm():
+	spotsdict = request.args.to_dict()
+	posm = spotsdict["player1"]
+	posl = spotsdict["player2"]
 	return render_template('memmatch.html')
 
 @app.route('/dino')
 def dino():
+	spotsdict = request.args.to_dict()
+	posm = spotsdict["player1"]
+	posl = spotsdict["player2"]
 	return render_template('dino.html')
 
 @app.route('/results')

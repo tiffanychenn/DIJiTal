@@ -275,12 +275,6 @@ function rollg(pressEvent){
     myVarg = setInterval(helpg, 1800);
 }
 
-function rolldata(){
-    var form = document.createElement("FORM");
-    form.setAttribute("action", getMiniGame());
-
-}
-
 
 function helpg(){
     if (num > 0){
@@ -303,10 +297,11 @@ function roll(pressEvent){
 		luigi = true;
     }
     if (mario && luigi) {
-	    var link = document.createElement("a");
-    	var b = document.createTextNode("Click to play Minigame!");
+	    var link = document.createElement("BUTTON");
+      link.setAttribute("type", "submit");
+      link.setAttribute("value","Click to play Minigame!");
 	    console.log(minigame);
-	    if (minigame == 0){
+	    /*if (minigame == 0){
 		link.setAttribute("href", "slots");
 	    }
  	   else if (minigame == 1){
@@ -314,9 +309,8 @@ function roll(pressEvent){
  	   }
 	    else{
 		link.setAttribute("href", "memmatch");
-	    }
-	    link.appendChild(b);
-	    document.getElementById("info").appendChild(link);
+  }*/
+	    document.getElementById("form").appendChild(link);
 	    mario = false;
 	    luigi = false;
     }
