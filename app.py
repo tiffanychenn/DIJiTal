@@ -16,8 +16,6 @@ def root():
 
 @app.route('/board')
 def board():
-    #roll = request.form['num']
-    #^^ Need to be able to get the info about how many rolls from javascript. then, I'll do db.setPosition(0,0,db.getPosition(0,0) + roll) and db.setPosition(0,1,db.getPosition(0,1) + roll
     positioning = "<div id='player2'></div> <div id='player1'></div>"
     posm = "pos" + str(db.getPosition(session["id"],0)[0]+ 1)
     posl = "pos" + str(db.getPosition(session["id"],1)[0]+ 1)
