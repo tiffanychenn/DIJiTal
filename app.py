@@ -12,7 +12,11 @@ def root():
 
 @app.route('/board')
 def board():
-	return render_template('board.html')
+        #roll = request.form['num']
+        #^^ Need to be able to get the info about how many rolls from javascript. then, I'll do db.setPosition(0,0,db.getPosition(0,0) + roll) and db.setPosition(0,1,db.getPosition(0,1) + roll
+        positioning = "<div id='player2'> </div> <div id='player1'></div>"
+        pos = "pos" + str(db.getPosition(0,0)[0]+ 1)
+        return render_template('board.html', position0 = pos, pos1 = positioning)
 
 @app.route('/slots')
 def slots():
