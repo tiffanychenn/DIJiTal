@@ -41,6 +41,15 @@ def createGame():
 
 # START ALL OUR GET FUNCTIONS
 
+def getGameID(passcode):
+    db, c = openDatabase()
+    cm = 'SELECT gameID FROM games WHERE passcode = %d;' %(passcode, player)
+    x = c.execute(cm)
+    for i in x:
+        idd = i
+    closeDatabase(db)
+    return idd   
+
 def getPosition(game, player):
     db, c = openDatabase()
     cm = 'SELECT position FROM players WHERE gameID = %d AND playerID = %d;' %(game, player)
