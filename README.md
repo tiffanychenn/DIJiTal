@@ -1,9 +1,11 @@
 # DIJiTal
 
 Let's go DIJiTal! (period 8)
+
 Software Developers: Tiffany Chen (project manager), Jonathan Quang, Iris Tao, Donia Tung
 
 Welcome to our Mario Party!
+
 With our project, you can play a simplified version of Mario Party! Two players will play on the same computer for 10 turns. Each player starts with 20 coins. In each turn, each player will roll the die and land on a spot where they will gain/lose a certain amount of coins. After each player traverses the board, a minigame will randomly be selected for them to play. The winner of the minigame will receive 10 coins. The player with the most coins at the end wins.
 
 Instructions:
