@@ -43,10 +43,10 @@ def createGame():
 
 def getGameID(passcode):
     db, c = openDatabase()
-    cm = 'SELECT gameID FROM games WHERE passcode = %d;' %(passcode, player)
+    cm = 'SELECT gameID FROM games WHERE passcode = %d;' %(passcode)
     x = c.execute(cm)
     for i in x:
-        idd = i
+        idd = i[0]
     closeDatabase(db)
     return idd   
 

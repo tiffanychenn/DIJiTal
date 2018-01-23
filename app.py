@@ -8,6 +8,10 @@ app.secret_key = urandom(32)
 
 @app.route('/')
 def root():
+	try:
+		session.pop("id")
+	except:
+		pass
 	return render_template('home.html')
 
 @app.route('/board')
@@ -15,8 +19,8 @@ def board():
     #roll = request.form['num']
     #^^ Need to be able to get the info about how many rolls from javascript. then, I'll do db.setPosition(0,0,db.getPosition(0,0) + roll) and db.setPosition(0,1,db.getPosition(0,1) + roll
     positioning = "<div id='player2'></div> <div id='player1'></div>"
-    posm = "pos" + str(db.getPosition(0,0)[0]+ 1)
-    posl = "pos" + str(db.getPosition(0,1)[0]+ 1)
+    posm = "pos" + str(db.getPosition(session["id"],0)[0]+ 1)
+    posl = "pos" + str(db.getPosition(session["id"],1)[0]+ 1)
     return render_template('board.html', pos_mario = posm, pos_luigi = posl)
 
 @app.route('/slots')
@@ -24,7 +28,9 @@ def slots():
 	spotsdict = request.args.to_dict()
 	posm = spotsdict["player1"]
 	posl = spotsdict["player2"]
-	return render_template('slots.html', player1 = posm, player2 = posl)
+	db.setPosition(session["id"],0,db.getPosition(session["id"],0)[0] + int(posm))
+	db.setPosition(session["id"],1,db.getPosition(session["id"],1)[0] + int(posl))
+	return render_template('slots.html')
 
 @app.route('/memm')
 def memm():
@@ -38,6 +44,8 @@ def dino():
 	spotsdict = request.args.to_dict()
 	posm = spotsdict["player1"]
 	posl = spotsdict["player2"]
+	db.setPosition(session["id"],0,db.getPosition(session["id"],0)[0] + int(posm))
+	db.setPosition(session["id"],1,db.getPosition(session["id"],1)[0] + int(posl))
 	return render_template('dino.html')
 
 @app.route('/results')
@@ -51,6 +59,7 @@ def oldGame():
 	if boolean == 2:
 		flash("Game ID does not exist.")
 	elif boolean:
+		session["id"] = db.getGameID(game);
 		return redirect(url_for("board"))
 	else:
 		flash("Game has already passed ten turns.")

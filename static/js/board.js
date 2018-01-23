@@ -11,6 +11,7 @@ var myVarg;
 var mario = false;
 var luigi = false;
 var minigame;
+var y = document.createElement("INPUT");
 
 
 function rightr(){
@@ -117,7 +118,7 @@ function mover(){
 function rollr(){
     num = Math.floor(Math.random() * 6) + 1;
     console.log(num);
-    minigame = Math.floor(Math.random() * 3);
+    minigame = Math.floor(Math.random() * 2);
     var rollInfo = document.createElement("P");
     var a = document.createTextNode("Player 1 rolled a " + num);
     rollInfo.appendChild(a);
@@ -130,10 +131,7 @@ function rollr(){
     else if (minigame == 1){
       r.setAttribute("action", "dino");
     }
-    else {
-      r.setAttribute("action", "memmatch")
-    }
-    var y = document.createElement("INPUT");
+    y = document.createElement("INPUT")
     y.setAttribute("type", "hidden");
     y.setAttribute("value", num);
     y.setAttribute("name", "player1")
@@ -299,7 +297,7 @@ function roll(pressEvent){
     if (mario && luigi) {
 	    var link = document.createElement("BUTTON");
       link.setAttribute("type", "submit");
-      link.setAttribute("value","Click to play Minigame!");
+      link.innerHTML = "Click to play minigame!";
 	    console.log(minigame);
 	    /*if (minigame == 0){
 		link.setAttribute("href", "slots");
