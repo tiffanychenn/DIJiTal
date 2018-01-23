@@ -73,7 +73,7 @@ var generateMovingBlock = function(){
 		p1Block.style.position="absolute";
 		p1Block.style.backgroundColor="blue";
 		p1Block.style.top= (300-blockHeight) + "px";
-		p1Block.style.left="750px";
+		p1Block.style.left="650px";
 		player1Container.appendChild(p1Block);
 		player1Blocks[p1Block.id]=p1Block;
 	}
@@ -85,7 +85,7 @@ var generateMovingBlock = function(){
 		p2Block.style.position="absolute";
 		p2Block.style.backgroundColor="blue";
 		p2Block.style.top= (300-blockHeight) + "px";
-		p2Block.style.left="750px";
+		p2Block.style.left="650px";
 		player2Container.appendChild(p2Block);
 		player2Blocks[p2Block.id]=p2Block;
 	}
@@ -149,7 +149,7 @@ var gameSpace = function(){
 				leftDeltaString = leftDeltaString.slice(0,leftDeltaString.length-2);
 				var leftDeltaNum = parseFloat(leftDeltaString);
 				leftDeltaNum = leftDeltaNum - 5;
-				if (leftDeltaNum > -75){
+				if (leftDeltaNum > -5){
 					blockArray[blockContainer][jsonKey].style.left=leftDeltaNum+'px'
 					//check for collision
 					leftDeltaNum+=5;
@@ -167,6 +167,9 @@ var gameSpace = function(){
 							console.log("dead2");
 						}
 					}					
+				}
+				else {
+					blockArray[blockContainer][jsonKey].style.backgroundColor = "black";
 				}
 			}
 		}

@@ -1,148 +1,27 @@
-<head>
+{% extends "game.html" %}
+
+{% block title %}
 	<title>dinosaur minigame</title>
-	<style>
+{% endblock %}
 
-.dropbtn {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
+{% block header %}Play the dinosaur minigame!{% endblock %}
 
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    padding: 10px;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown a:hover {background-color: #f1f1f1}
-
-.show {display:block;}
-
-table, tr, td {
-	width: 100%;
-	text-align: center;
-}
-
-body {
-	text-align: center;
-	font-family: Georgia; 
-	background-image: url(static/UA5jssX.png); 
-	padding: 50px 75px 50px 75px;
-}
-
-h2 {
-	font-family: impact; 
-	letter-spacing: 2px;
-	font-size: 40px;
-}
-
-button {
-	font-family: Georgia;
-}
-
-h3, h4 {
-  font-family: verdana;
-  font-weight: normal;
-}
-
-	</style>
-
-</head>
-
-<body>
-<h2>Play our dinosaur minigame!</h2>
+{% block purpose %}
 	<script type="text/javascript" src="{{url_for('static',filename='js/dino.js')}}">
 	</script>
 
 	<script type="text/javascript" src="../static/js/dino.js">
 	</script>
-	<table>
-	<tr><td>
-	<div id = "container1" style = "background-color:black;width:800px;height:300px;position:relative;">
+	<div id = "container1" style = "background-color:black;width:700px;height:300px;position:relative;">
 		<div id = "player1" style = "background-color:red;width:50px;height:50px;position:absolute;top:250px;left:50px">	
 		</div>
 	</div>
 	<br><br>
-	<div id = "container2" style = "background-color:black;width:800px;height:300px;position:relative;">
+	<div id = "container2" style = "background-color:black;width:700px;height:300px;position:relative;">
 		<div id = "player2" style = "background-color:green;width:50px;height:50px;position:absolute;top:250px;left:50px">	
 		</div>
 	</div>
 	<br>
 	<div id="reportResults">
 	</div>
-	</td>
-	<td>
-	<div class="dropdown">
-<button onclick="myFunction()" class="dropbtn" style="background-color: #00A676; border-radius: 8px;">Rules</button>
-  <div id="myDropdown" class="dropdown-content">
-    <p>In this minigame, you jump over blue obstacles. The person who hits an obstacle first loses. The winner gets 10 coins.</p>
-  </div>
-</div>
-
-	<div class="dropdown">
-<button onclick="myFunction1()" class="dropbtn" style="background-color: #EB5E55; border-radius: 8px;">Controls</button>
-  <div id="myDropdown1" class="dropdown-content">
-    <p>Press y to start the game. Player 1 jumps with the w key. Player 2 jumps with the i key.</p>
-  </div>
-</div>
-
-<h3>Player 1 (Mario):</h3><br><img src="../static/marioprofile.png"><br><br>
-<h3>Total coins:</h3><h5>10 <img src="../static/coin.png"></h5>
-<h3>Player 2 (Luigi):</h3><br><img src="../static/luigiprofile.png"><br><br>
-<h3>Total coins:</h3><h5>10 <img src="../static/coin.png"></h5>
-
-</td></tr></table>
-
-
-	<script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-
-function myFunction1() {
-    document.getElementById("myDropdown1").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onmouseover = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>
-
-</body>
+{% endblock %}

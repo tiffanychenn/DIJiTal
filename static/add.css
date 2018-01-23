@@ -3,6 +3,11 @@ body {
 	background-image: url(UA5jssX.png);
 }
 
+h2 {
+	font-family: impact; 
+	letter-spacing: 2px;
+}
+
 h2, h4 {
 	text-align: center;
 }

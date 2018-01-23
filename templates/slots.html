@@ -1,23 +1,20 @@
-<body>
+{% extends "game.html" %}
+
+{% block title %}
+	<title>slot machine minigame</title>
+{% endblock %}
+
+{% block header %}Play the slot machine minigame!{% endblock %}
+
+{% block purpose %}
 	<script type="text/javascript" src="{{url_for('static',filename='js/slots.js')}}">
 	</script>
 
 	<script type="text/javascript" src="static/js/slots.js">
 	</script>
-
-	<br>
-	<h5>Scoring guide: red=1 blue=1.5 green=2.0 yellow=2.5 black=3
-		<br>Match 2 and get a bonus of *5. Match 3 and get a bonus of *10
-		<br>Player 1 controls: left slot: A S D-stop left to right slots
-		<br>Player 2 controls: right slot: J K L - stop left to right slots
-		<br>Press y to spin both slots
-	</h5> 
-
-	<br>
 	
-	<table>
-		<tr>
-			<td>
+	<div class="grid-x grid-margin-x" style="text-align: center;">
+      <div class="cell small-6">
 				<div id = "container" style = "background-color:black;width:350px;height:400px;position:relative;">
 				<div id = "leftWheel0" style = "background-color:red;width:100px;height:100px;position:absolute;">
 				</div>
@@ -46,11 +43,10 @@
 				<div id = "marker" style = "background-color:grey;width:50px;height:400px;position:absolute;right:0px;"></div>
 				<div id = "marker" style = "background-color:cyan;width:50px;height:10px;position:absolute;right:0px;top:190px;"></div>
 				</div>
-				<h2 id = "p1Results"></h2>
-				<h2 id = "p1Score"></h2>
-				</div>
-			</td>
-			<td>
+				<h3 id = "p1Results"></h3>
+				<h3 id = "p1Score"></h3>
+			</div>
+			<div class="cell small-6">
 				<div id = "container" style = "background-color:black;width:350px;height:400px;position:relative;">
 				<div id = "2leftWheel0" style = "background-color:red;width:100px;height:100px;position:absolute;">
 				</div>
@@ -79,13 +75,13 @@
 				<div id = "marker" style = "background-color:grey;width:50px;height:400px;position:absolute;right:0px;"></div>
 				<div id = "marker" style = "background-color:cyan;width:50px;height:10px;position:absolute;right:0px;top:190px;"></div>
 				</div>
-				<h2 id = "p2Results"></h2>
-				<h2 id = "p2Score"></h2>
+				<h3 id = "p2Results"></h3>
+				<h3 id = "p2Score"></h3>
 				</div>
-			</td>
-		</tr>
-	</table>
-	
-	<div id = "reportResults"></div>
+			<div id = "reportResults" style="text-align: center;"></div>
+		</div>
+{% endblock %}
 
-</body>
+{% block rules %}Both players will be operating the slot machines! The player with the most points wins.<br>Scoring guide: red=1, blue=1.5, green=2.0, yellow=2.5, black=3<br>Two of the same color gets a *5 multiplier, three of the same color gets a *10 multiplier{% endblock %}
+
+{% block controls %}Press the y key to start both slot machines. Player 1 operates the left slot machine and stops the left, middle, and right columns with the a, s, and d keys, respectively. Player 2 operates the right slot machine and stops the left, middle, and right columns with the j, k, and l keys, respectively. After both players are done stopping their machines, press the b button to get your scores and go back to the board.{% endblock %}

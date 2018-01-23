@@ -210,21 +210,20 @@ var playerControls = function(pressEvent){
 		pRight[1]=true;
 	}
 	if (pressEvent.key == "b"){
-		var resultsArray1 = ["","",""];
-		for (i=0;i<3;i++){
-			resultsArray1[i]=pResults[0][i];
+		if (pMiddle[0] && pLeft[0] && pRight[0] && pMiddle[1] && pLeft[1] && pRight[1]){
+			var resultsArray1 = ["","",""];
+			for (i=0;i<3;i++){
+				resultsArray1[i]=pResults[0][i];
+			}
+			var resultsArray2 = ["","",""];
+			for (i=0;i<3;i++){
+				console.log(pResults[1][i]);
+				resultsArray2[i]=pResults[1][i];
+			}
+			calculateScore(resultsArray1,"p1Score");
+			calculateScore(resultsArray2,"p2Score");
+			console.log("scores calculated");
 		}
-		var resultsArray2 = ["","",""];
-		for (i=0;i<3;i++){
-			console.log(pResults[1][i]);
-			resultsArray2[i]=pResults[1][i];
-		}
-		//console.log(resultsArray1 + " aweqweqwe " + resultsArray2);
-		
-		calculateScore(resultsArray1,"p1Score");
-		//pResults[1][2]=verticalPosRedToResult(document.getElementById("2RightWheell");)
-		calculateScore(resultsArray2,"p2Score");
-		console.log("scores calculated");
 	}
 	
 	
