@@ -49,3 +49,6 @@ board links to minigames
 
 doniaT -- 2018-01-23 16:00
 information about board positions sent to minigames
+
+doniaT -- 2018-01-23 18:45
+pushed a change to board that should(?) fix it so that it moves correctly when placed back on the board
