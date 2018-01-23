@@ -1,12 +1,181 @@
-var xposr = 0;
-var yposr = 0;
-var directionr = "right";
+var directionr;
+var xposr;
+var yposr;
+var directiong;
+var xposg;
+var yposg;
+
+var posm = document.getElementById("player1").innerHTML;
+var posl = document.getElementById("player2").innerHTML;
+
+if (posm > 6 && posm <= 11){
+  directionr = "down";
+  xposr = 900;
+  if (posm == 7){
+    yposr = 100;
+  }
+  else if (posm == 8){
+    yposr = 200;
+  }
+  else if (posm == 9){
+    yposr = 300;
+  }
+  else if (posm == 10){
+    yposr = 400;
+  }
+  else if (posm == 11){
+    yposr = 500;
+  }
+}
+else if (posm > 11 && posm <= 17){
+  directionr = "left";
+  yposr = 600;
+  if (posm == 12){
+    xposr = 900;
+  }
+  else if (posm == 13){
+    xposr = 750;
+  }
+  else if (posm == 14){
+    xposr = 600;
+  }
+  else if (posm == 15){
+    xposr = 450;
+  }
+  else if (posm == 16){
+    xposr = 300;
+  }
+  else{
+    xposr = 150;
+  }
+}
+else if (posm > 17 && posm <= 22){
+  directionr = "up";
+  xposr = 0;
+  if (posm == 18){
+    yposr = 500;
+  }
+  else if (posm == 19){
+    yposr = 400;
+  }
+  else if (posm == 20){
+    yposr = 300;
+  }
+  else if (posm == 21){
+    yposr = 200;
+  }
+  else if (posm == 22){
+    yposr = 100;
+  }
+}
+else {
+  directionr = "right";
+  yposr = 0;
+  if (posm == 1){
+    xposr = 0;
+  }
+  else if (posm == 2){
+    xposr = 150;
+  }
+  else if (posm == 3){
+    xposr = 300;
+  }
+  else if (posm == 4){
+    xposr = 450;
+  }
+  else if (posm == 5){
+    xposr = 600;
+  }
+  else if (posm == 6){
+    xposr = 750;
+  }
+}
+
+if (posl > 6 && posl <= 11){
+  directiong = "down";
+  xposg = 900;
+  if (posl == 7){
+    yposg = 100;
+  }
+  else if (posl == 8){
+    yposg = 200;
+  }
+  else if (posl == 9){
+    yposg = 300;
+  }
+  else if (posl == 10){
+    yposg = 400;
+  }
+  else if (posl == 11){
+    yposg = 500;
+  }
+}
+else if (posl > 11 && posl <= 17){
+  directiong = "left";
+  yposg = 600;
+  if (posl == 12){
+    xposg = 900;
+  }
+  else if (posl == 13){
+    xposg = 750;
+  }
+  else if (posl == 14){
+    xposg = 600;
+  }
+  else if (posl == 15){
+    xposg = 450;
+  }
+  else if (posl == 16){
+    xposg = 300;
+  }
+  else{
+    xposg = 150;
+  }
+}
+else if (posl > 17 && posl <= 22){
+  directiong = "up";
+  xposg = 0;
+  if (posl == 18){
+    yposg = 500;
+  }
+  else if (posl == 19){
+    yposg = 400;
+  }
+  else if (posl == 20){
+    yposg = 300;
+  }
+  else if (posl == 21){
+    yposg = 200;
+  }
+  else if (posl == 22){
+    yposg = 100;
+  }
+}
+else {
+  directiong = "right";
+  yposg = 0;
+  if (posl == 1){
+    xposg = 0;
+  }
+  else if (posl == 2){
+    xposg = 150;
+  }
+  else if (posl == 3){
+    xposg = 300;
+  }
+  else if (posl == 4){
+    xposg = 450;
+  }
+  else if (posl == 5){
+    xposg = 600;
+  }
+  else if (posl == 6){
+    xposg = 750;
+  }
+}
+
 var num;
 var myVarr;
-var xposg = 0;
-var yposg = 0;
-var directiong = "right";
-var num;
 var myVarg;
 var mario = false;
 var luigi = false;
