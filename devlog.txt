@@ -46,3 +46,6 @@ board works for two players!
 
 doniaT -- 2018-01-22 23:00
 board links to minigames
+
+doniaT -- 2018-01-23 16:00
+information about board positions sent to minigames
