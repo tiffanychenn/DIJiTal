@@ -1,4 +1,4 @@
-//need an if/else to check where the players are, then use that to set these variables
+ //need an if/else to check where the players are, then use that to set these variables
 
 var xposr = 0;
 var yposr = 0;
@@ -10,6 +10,8 @@ var yposg = 0;
 var directiong = "right";
 var num;
 var myVarg;
+var mario = false;
+var luigi = false;
 
 
 function rightr(){
@@ -117,7 +119,7 @@ function rollr(){
     num = Math.floor(Math.random() * 6) + 1;
     console.log(num);
     var rollInfo = document.createElement("P");
-    var a = document.createTextNode("You rolled a " + num);
+    var a = document.createTextNode("Player 1 rolled a " + num);
     rollInfo.appendChild(a);
     document.getElementById("info").appendChild(rollInfo);
     mover();
@@ -243,7 +245,7 @@ function rollg(pressEvent){
     num = Math.floor(Math.random() * 6) + 1;
     console.log(num);
     var rollInfo = document.createElement("P");
-    var a = document.createTextNode("You rolled a " + num);
+    var a = document.createTextNode("Player 2 rolled a " + num);
     rollInfo.appendChild(a);
     document.getElementById("info").appendChild(rollInfo);
     var r = document.createElement("form");
@@ -270,27 +272,32 @@ function helpg(){
 
 function roll(pressEvent){
     if (pressEvent.code == "KeyS"){
-	rollr();
+		rollr();
+		mario = true;
     }
     else if (pressEvent.code == "KeyK"){
-	rollg();
+		rollg();
+		luigi = true;
     }
-
-    var link = document.createElement("a");
-    var b = document.createTextNode("Click to play Minigame!");
-    var rand = Math.floor(Math.random() * 3);
-    console.log(rand);
-    if (rand == 0){
-	link.setAttribute("href", "slots");
+    if (mario && luigi) {
+	    var link = document.createElement("a");
+    	var b = document.createTextNode("Click to play Minigame!");
+	    var rand = Math.floor(Math.random() * 3);
+	    console.log(rand);
+	    if (rand == 0){
+		link.setAttribute("href", "slots");
+	    }
+ 	   else if (rand == 1){
+		link.setAttribute("href", "dino");
+ 	   }
+	    else{
+		link.setAttribute("href", "memmatch");
+	    }
+	    link.appendChild(b);
+	    document.getElementById("info").appendChild(link);
+	    mario = false;
+	    luigi = false;
     }
-    else if (rand == 1){
-	link.setAttribute("href", "dino");
-    }
-    else{
-	link.setAttribute("href", "memmatch");
-    }
-    link.appendChild(b);
-    document.getElementById("info").appendChild(link);
 }
 
 

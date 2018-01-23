@@ -12,11 +12,12 @@ def root():
 
 @app.route('/board')
 def board():
-        #roll = request.form['num']
-        #^^ Need to be able to get the info about how many rolls from javascript. then, I'll do db.setPosition(0,0,db.getPosition(0,0) + roll) and db.setPosition(0,1,db.getPosition(0,1) + roll
-        positioning = "<div id='player2'> </div> <div id='player1'></div>"
-        pos = "pos" + str(db.getPosition(0,0)[0]+ 1)
-        return render_template('board.html', position0 = pos, pos1 = positioning)
+    #roll = request.form['num']
+    #^^ Need to be able to get the info about how many rolls from javascript. then, I'll do db.setPosition(0,0,db.getPosition(0,0) + roll) and db.setPosition(0,1,db.getPosition(0,1) + roll
+    positioning = "<div id='player2'></div> <div id='player1'></div>"
+    posm = "pos" + str(db.getPosition(0,0)[0]+ 1)
+    posl = "pos" + str(db.getPosition(0,1)[0]+ 1)
+    return render_template('board.html', pos_mario = posm, pos_luigi = posl)
 
 @app.route('/slots')
 def slots():
@@ -25,6 +26,10 @@ def slots():
 @app.route('/memm')
 def memm():
 	return render_template('memmatch.html')
+
+@app.route('/dino')
+def dino():
+	return render_template('dino.html')
 
 @app.route('/oldGame', methods=["GET", "POST"])
 def oldGame():

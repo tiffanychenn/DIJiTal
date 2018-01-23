@@ -18,8 +18,7 @@ pMiddle = [false,false];
 pRight = [false,false];
 
 var pScores = {"p1Score":0,"p2Score":0};
-var pBuggedScore = {"p1Score":0,"p2Score":0};
-
+var done = false;
 
 var verticalPosRedToResult = function(slotArray){
 	//console.log(slotArray);
@@ -151,37 +150,29 @@ var calculateScore = function(resultsArray,scoreDivId){
 	var score = 0;
 	for (i=0; i<resultsArray.length;i++){
 		var theColor = resultsArray[i];
-		//console.log(resultsArray);
-		//console.log(theColor);
+		console.log(resultsArray);
+		console.log(theColor);
 		if (theColor =="red"){
 			score=score+1.0;
-			pBuggedScore[scoreDivId]+=1.0;
 		}
 		if (theColor == "blue"){
 			score=score+1.5;
-			pBuggedScore[scoreDivId]+=1.5;
 		}
 		if (theColor == "green"){
 			score=score+2.0;
-			pBuggedScore[scoreDivId]+=2.0;
 		}	
 		if (theColor == "yellow"){
 			score=score+2.5;
-			pBuggedScore[scoreDivId]+=2.5;
 		}
 		if (theColor == "black"){
 			score=score+3.0;
-			pBuggedScore[scoreDivId]+=3.0;
 		}
-		//console.log("score in lieu" + score);
-		//console.log(pBuggedScore);
-		//console.log(pResults);
+		console.log("score in lieu" + score);
 	}
 	//console.log("score:" + score);
 	//console.log("multiplier:" + multiplier);
-	pScores[scoreDivId]=score;
-	pBuggedScore[scoreDivId]=pBuggedScore[scoreDivId] * multiplier;
-	var score = document.getElementById(scoreDivId).innerText = "score: " + (score * multiplier);
+	pScores[scoreDivId]=score * multiplier;
+	document.getElementById(scoreDivId).innerText = "score: " + (score * multiplier);
 
 }
 
@@ -191,6 +182,7 @@ document.addEventListener("keypress",playerControls);
 var playerControls = function(pressEvent){
 	//console.log("keypress detected");
 	//console.log(pressEvent);	
+	if (!done){
 	
 	if (pressEvent.key == "s" && p1Toggle == true){		
 		pMiddle[0] = true;	
@@ -207,9 +199,6 @@ var playerControls = function(pressEvent){
 		animateLeft();
 		animateRight();
 	}
-	if (pMiddle[0] && pLeft[0] && pRight[0]){
-		//calculateScore(p1Results,"p1Score");
-	}
 	
 	if (pressEvent.key == "k" && p2Toggle == true){		
 		pMiddle[1] = true;
@@ -220,7 +209,7 @@ var playerControls = function(pressEvent){
 	if (pressEvent.key == "l" && p2Toggle == true){
 		pRight[1]=true;
 	}
-	if (pMiddle[1] && pLeft[1] && pRight[1]&&pMiddle[0] && pLeft[0] && pRight[0]){
+	if (pressEvent.key == "b"){
 		var resultsArray1 = ["","",""];
 		for (i=0;i<3;i++){
 			resultsArray1[i]=pResults[0][i];
@@ -240,13 +229,16 @@ var playerControls = function(pressEvent){
 	
 	
 	if (pScores["p1Score"] != 0 && pScores["p2Score"] != 0){
+		done = true;
 		var winner = 0;
-		calculateScore(pResults[1],"p2Score");
-		console.log('report scores');
+		//calculateScore(pResults[1],"p2Score");
+		console.log(pScores['p2Score'] + " " + pScores['p1Score']);
 		if (pScores['p2Score'] > pScores['p1Score']){
 			winner =1;
 		}
-	
+		if (pScores['p2Score'] == pScores['p1Score']){
+			winner = 2;
+		}
 		var buttonLocation = document.getElementById("reportResults");
 		var formNode = document.createElement("form");
 		formNode.innerText = "click here to go back to the board. The winner is Player " + (winner+1);
@@ -259,6 +251,7 @@ var playerControls = function(pressEvent){
 		formNode.append(winnerData);
 		buttonLocation.append(formNode);
 	}
+}
 	
 	
 }
