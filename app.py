@@ -31,6 +31,10 @@ def memm():
 def dino():
 	return render_template('dino.html')
 
+@app.route('/results')
+def results():
+	return render_template('results.html')
+
 @app.route('/oldGame', methods=["GET", "POST"])
 def oldGame():
 	game = int(request.form["game"])
