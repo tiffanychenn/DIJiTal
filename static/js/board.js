@@ -1,5 +1,3 @@
- //need an if/else to check where the players are, then use that to set these variables
-
 var xposr = 0;
 var yposr = 0;
 var directionr = "right";
@@ -12,6 +10,7 @@ var num;
 var myVarg;
 var mario = false;
 var luigi = false;
+var minigame;
 
 
 function rightr(){
@@ -22,7 +21,7 @@ function rightr(){
 	if (xposr == endpt) {
 	    clearInterval(id);
 	} else {
-	    xposr++; 
+	    xposr++;
 	    elem.style.left = xposr + 'px';
 	}
     }
@@ -36,9 +35,9 @@ function leftr(){
 	if (xposr == endpt) {
 	    clearInterval(id);
 	} else {
-	    xposr--; 
+	    xposr--;
 	    elem.style.left = xposr + 'px';
-	} 
+	}
     }
 }
 
@@ -50,7 +49,7 @@ function downr() {
 	if (yposr == endpt) {
 	    clearInterval(id);
 	} else {
-	    yposr++; 
+	    yposr++;
 	    elem.style.top = yposr + 'px';
 	}
     }
@@ -65,7 +64,7 @@ function upr(){
 	if (yposr == endpt) {
 	    clearInterval(id);
 	} else {
-	    yposr--; 
+	    yposr--;
 	    elem.style.top = yposr + 'px';
 	}
     }
@@ -118,10 +117,28 @@ function mover(){
 function rollr(){
     num = Math.floor(Math.random() * 6) + 1;
     console.log(num);
+    minigame = Math.floor(Math.random() * 3);
     var rollInfo = document.createElement("P");
     var a = document.createTextNode("Player 1 rolled a " + num);
     rollInfo.appendChild(a);
     document.getElementById("info").appendChild(rollInfo);
+    var r = document.createElement("FORM");
+    r.setAttribute("id", "form");
+    if (minigame == 0){
+      r.setAttribute("action","slots");
+    }
+    else if (minigame == 1){
+      r.setAttribute("action", "dino");
+    }
+    else {
+      r.setAttribute("action", "memmatch")
+    }
+    var y = document.createElement("INPUT");
+    y.setAttribute("type", "hidden");
+    y.setAttribute("value", num);
+    y.setAttribute("name", "player1")
+    document.getElementById("info").appendChild(r)
+    document.getElementById("form").appendChild(y)
     mover();
     num--;
     myVarr  = setInterval(helpr, 1800);
@@ -148,7 +165,7 @@ function rightg(){
 	if (xposg == endpt) {
 	    clearInterval(id);
 	} else {
-	    xposg++; 
+	    xposg++;
 	    elem.style.left = xposg + 'px';
 	}
     }
@@ -162,9 +179,9 @@ function leftg(){
 	if (xposg == endpt) {
 	    clearInterval(id);
 	} else {
-	    xposg--; 
+	    xposg--;
 	    elem.style.left = xposg + 'px';
-	} 
+	}
     }
 }
 
@@ -176,7 +193,7 @@ function downg() {
 	if (yposg == endpt) {
 	    clearInterval(id);
 	} else {
-	    yposg++; 
+	    yposg++;
 	    elem.style.top = yposg + 'px';
 	}
     }
@@ -191,7 +208,7 @@ function upg(){
 	if (yposg == endpt) {
 	    clearInterval(id);
 	} else {
-	    yposg--; 
+	    yposg--;
 	    elem.style.top = yposg + 'px';
 	}
     }
@@ -248,11 +265,11 @@ function rollg(pressEvent){
     var a = document.createTextNode("Player 2 rolled a " + num);
     rollInfo.appendChild(a);
     document.getElementById("info").appendChild(rollInfo);
-    var r = document.createElement("form");
-    r.innerText = num;
-    r.setAttribute("method", "POST");
-    r.setAttribute("action", "/board");
-    document.getElementById("info").appendChild(r)
+    var y = document.createElement("INPUT");
+    y.setAttribute("type", "hidden");
+    y.setAttribute("value", num);
+    y.setAttribute("name", "player2")
+    document.getElementById("form").appendChild(y)
     moveg();
     num--;
     myVarg = setInterval(helpg, 1800);
@@ -280,21 +297,20 @@ function roll(pressEvent){
 		luigi = true;
     }
     if (mario && luigi) {
-	    var link = document.createElement("a");
-    	var b = document.createTextNode("Click to play Minigame!");
-	    var rand = Math.floor(Math.random() * 3);
-	    console.log(rand);
-	    if (rand == 0){
+	    var link = document.createElement("BUTTON");
+      link.setAttribute("type", "submit");
+      link.setAttribute("value","Click to play Minigame!");
+	    console.log(minigame);
+	    /*if (minigame == 0){
 		link.setAttribute("href", "slots");
 	    }
- 	   else if (rand == 1){
+ 	   else if (minigame == 1){
 		link.setAttribute("href", "dino");
  	   }
 	    else{
 		link.setAttribute("href", "memmatch");
-	    }
-	    link.appendChild(b);
-	    document.getElementById("info").appendChild(link);
+  }*/
+	    document.getElementById("form").appendChild(link);
 	    mario = false;
 	    luigi = false;
     }
@@ -302,5 +318,3 @@ function roll(pressEvent){
 
 
 document.addEventListener("keypress", roll);
-
-
