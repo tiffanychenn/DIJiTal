@@ -114,6 +114,10 @@ function mover(){
 function rollr(){
     num = Math.floor(Math.random() * 6) + 1;
     console.log(num);
+    var rollInfo = document.createElement("P");
+    var a = document.createTextNode("You rolled a " + num);
+    rollInfo.appendChild(a);
+    document.getElementById("info").appendChild(rollInfo);
     mover();
     num--;
     myVarr  = setInterval(helpr, 1800);
@@ -236,9 +240,13 @@ function moveg(){
 function rollg(pressEvent){
     num = Math.floor(Math.random() * 6) + 1;
     console.log(num);
+    var rollInfo = document.createElement("P");
+    var a = document.createTextNode("You rolled a " + num);
+    rollInfo.appendChild(a);
+    document.getElementById("info").appendChild(rollInfo);
     moveg();
     num--;
-    myVarg  = setInterval(helpg, 1800);
+    myVarg = setInterval(helpg, 1800);
 }
 
 
@@ -260,7 +268,32 @@ function roll(pressEvent){
     else if (pressEvent.code == "KeyK"){
 	rollg();
     }
+
+    var link = document.createElement("a");
+    var b = document.createTextNode("Click to play Minigame!");
+    var rand = Math.floor(Math.random() * 3);
+    console.log(rand);
+    if (rand == 0){
+	link.setAttribute("href", "slots.html");
+    }
+    else if (rand == 1){
+	link.setAttribute("href", "dino.html");
+    }
+    else{
+	link.setAttribute("href", "memmatch.html");
+    }
+    link.appendChild(b);
+    document.getElementById("info").appendChild(link);
+
+    
+   /* var buttonLocation = document.getElementById("info");
+    var formNode = document.createElement("P");
+    formNode.innerText = "Click to Play the Minigame!";
+    formNode.setAttribute('method','POST');
+    formNode.setAttribute('href','slots.html');
+    buttonLocation.appendChild(formNode);*/
 }
+
 
 document.addEventListener("keypress", roll);
 
