@@ -8,8 +8,13 @@
 	var endGame = document.getElementsByClassName('game-over')[0];
 	var scoreD = document.getElementsByClassName('scoreDisplay')[0];
 	var scoreD1 = document.getElementsByClassName('scoreDisplay1')[0];
+	var turn = 1; //default: player1 flip first
+	var p1text = document.getElementsByClassName('p1turn');
+	var p2text = document.getElementsByClassName('p2turn');
 
 	function setBoard(){	
+		score = 0;
+		score1 = 0;
 		endGame.style.display = 'none';
 		var card = document.getElementsByClassName('card');
 		var card1 = document.getElementsByClassName('card1');
@@ -55,6 +60,12 @@
 				console.log('nowitschekcingmath');
 
 			}
+		}
+
+		turn ++;
+		
+
+
 		}	
 	}
 
@@ -103,10 +114,8 @@
 			//clear the flipped list
 			flippedCards = [];
 
-			score ++;
-			//console.log(score);
-			
-			scoreD.querySelector('h2').innerText = score;
+			score ++;	
+			console.log(score);		
 			
 			if (score == 3){
 				gameOverDisplay();
@@ -131,11 +140,8 @@
 			score1 ++;
 			//console.log(score);
 
-			
-			scoreD1.querySelector('h2').innerText = score1;
 			if (score1 == 3){
-				gameOverDisplay();
-				
+				gameOverDisplay();			
 			}
 		}
 
@@ -163,9 +169,7 @@
 		return arr;
 	}
 
-	//------------------------------------------------------------
-
-
+	//------DONE------------------------------------------------------
 
 	function gameOverDisplay(){
 		var restart = document.getElementsByTagName('button')[0];
