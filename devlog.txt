@@ -24,11 +24,21 @@ roll() and move() functions are like semi-working
 jonathanQ -- 2018-01-11 01:59:14
 completed a slotmachine for one player. I need to decide on a scoring mechanism
 
+irisT -- 2018-01-11 14:00
+built basic card display for memory match (grid and two types of cards)
+added basic functions for memm.js
+
 tiffanyC -- 2018-01-15 22:55
 added css and made changes to database.py and the forms
 
+irisT -- 2018-01-16 14:00
+added pictures for different cards and backgrounds
+
 doniaT -- 2018-01-18 18:00
 move() works now, so movement around the whole board is possible.
+
+irisT -- 2018-01-18 14:00
+worked on matchTest() 
 
 doniaT -- 2018-01-20 14:00
 roll() works for one player
@@ -62,5 +72,11 @@ pushed a change to board that should(?) fix it so that it moves correctly when p
 tiffanyC -- 2018-01-23 22:45
 the board now has css
 
+irisT -- 2018-01-23 23:00
+finished all basic functions for memory match
+
 tiffanyC -- 2018-01-24 00:25
 scoring now works for minigames
+
+irisT -- 2018-01-24 02:30
+added ptext(for displaying players'names) and switchTurn() for memory match

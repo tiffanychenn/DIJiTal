@@ -144,6 +144,8 @@
 
 </style> -->
 
+    <title>Memory Matching Game</title>
+    <link rel='stylesheet' type = 'text/css' href='http://127.0.0.1:5000/static/css/memm.css'/>
     
 {% endblock %}
 {% block body %}
@@ -225,15 +227,26 @@
 
 	<section class = 'game-over'>
 	  	<h1></h1>
-	  	<button> Restart </button>
+	  	<button> Play Again! </button>
 	</section>
 
+    <section class='otherstuff'>
+		<div class='background'></div>
+		<div class='background1'></div>	
+	</section>
+
+	<div class='name2'><h3>Player 2</h3></div>
+	<div class='name1'><h3>Player 1</h3></div>
+	<div class='p1turn'>Your turn to flip two cards!</div>
+	<div class='p2turn'></div>
+	
 	<section class='table'>
 
 	<div class = 'container'>
 		<div class = 'card1'>
 			<div class = 'front'></div>
 			<div class = 'back'></div>
+
 		</div>
 	</div>
 
@@ -328,7 +341,5 @@
     </div>
 	
 
-    
-
- 	<script src='../static/js/memm.js'></script>
+ 	<script src='http://127.0.0.1:5000/static/js/memm.js'></script>
 {% endblock %}

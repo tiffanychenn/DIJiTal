@@ -1,7 +1,7 @@
 
 body {
-  /*display: flex;
-  flex-direction: row;*/
+  display: flex;
+  flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
@@ -13,6 +13,41 @@ body {
 	height: 250px;
 	position: relative;
 	perspective: 800px;
+}
+
+.name1  {
+	float:left;
+	margin-left:20%;
+	color: orange;
+	font-family:cursive;
+	font-size:20pt;
+}
+
+.name2 {
+	float:right;
+	margin-right:20%;
+	color:purple;
+	font-family: cursive;
+	font-size:20pt;
+
+}
+
+.p1turn {
+	float:left;
+	margin-left:20%;
+	color: orange;
+	font-family:cursive;
+	font-size:20pt;
+
+}
+
+.p2turn {
+	float:right;
+	margin-right:20%;
+	color:purple;
+	font-family: cursive;
+	font-size:20pt;
+	
 }
 
 .table {
@@ -91,12 +126,35 @@ body {
   transform: rotateY(180deg);
 }
 
+<<<<<<< HEAD
+=======
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-image: url('http://127.0.0.1:5000/static/pics/playerback.png');
+    z-index: -1;
+}
+
+.background1 {
+    position: fixed;
+    top: 0;
+    left: 49.5%;
+    width: 50.5%;
+    height: 100%;
+    background-image: url('http://127.0.0.1:5000/static/pics/player1back.jpeg');
+    z-index: -1;
+}
+
 .game-over {
   display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgba(20, 20, 20, .9);
+  background-image: url('http://127.0.0.1:5000/static/UA5jssX.png');
   position: fixed;
   top: 20%;
   bottom: 0;
@@ -105,7 +163,8 @@ body {
 }
 
 h1 {
-  	color: blue;
+	align-self: center;
+  	color: orange;
   	font-size: 72pt;
   	font-weight: 400;
 }
