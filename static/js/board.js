@@ -5,10 +5,13 @@ var directiong;
 var xposg;
 var yposg;
 
-posm = document.getElementById("p1").innerHTML[10];
-posl = document.getElementById("p2").innerHTML[10];
+var rollInfo = document.createElement("P");
 
-function placeM(){
+posm = document.getElementById("p1").innerHTML[11] + document.getElementById("p1").innerHTML[12];
+posl = document.getElementById("p2").innerHTML[10] + document.getElementById("p2").innerHTML[11];
+posm = posm.replace(/\s+/g, '');
+posl = posl.replace(/\s+/g, '');
+/*function placeM(){
   if (posm <= 6){
     yposr = 0;
     directionr = "right";
@@ -173,19 +176,18 @@ console.log(directionr);
 console.log(posl);
 console.log(xposg);
 console.log(yposg);
-console.log(directiong);
+console.log(directiong);*/
 
 var num;
 var myVarr;
 var myVarg;
 var mario = false;
 var luigi = false;
-var canPress = false;
 var minigame;
 var y = document.createElement("INPUT");
 
 
-function rightr(){
+/*function rightr(){
     var elem = document.getElementById("player1");
     var endpt = xposr + 150;
     var id = setInterval(frame, 10);
@@ -283,6 +285,150 @@ function mover(){
 	    upr();
 	}
     }
+}*/
+
+function mover(num){
+  var newpos = ((Number(posm) + num) - 1) % 22;
+  var elem = document.getElementById("player1");
+  var random = Math.floor(Math.random() * 10) - 5;
+  var coins = document.createElement("INPUT")
+  coins.setAttribute("type", "hidden");
+  coins.setAttribute("name", "coins1");
+  if (newpos == 0){
+    elem.style.top = "0px";
+    elem.style.left = "0px";
+    var a = document.createTextNode("\nPlayer 1 gained 3 coins!");
+    coins.setAttribute("value", 3);
+  }
+  if (newpos == 1){
+    elem.style.top = "0px";
+    elem.style.left = "150px";
+    var a = document.createTextNode("\nPlayer 1 gained 0 coins!");
+    coins.setAttribute("value", 0);
+  }
+  if (newpos == 2){
+    elem.style.top = "0px";
+    elem.style.left = "300px";
+    var a = document.createTextNode("\nPlayer 1 lost 3 coins!");
+    coins.setAttribute("value", -3);
+  }
+  if (newpos == 3){
+    elem.style.top = "0px";
+    elem.style.left = "450px";
+    var a = document.createTextNode("\nPlayer 1 gained " + random + " coins!");
+    coins.setAttribute("value", random);
+  }
+  if (newpos == 4){
+    elem.style.top = "0px";
+    elem.style.left = "600px";
+    var a = document.createTextNode("\nPlayer 1 lost 3 coins!");
+    coins.setAttribute("value", -3);
+  }
+  if (newpos == 5){
+    elem.style.top = "0px";
+    elem.style.left = "750px";
+    var a = document.createTextNode("\nPlayer 1 gained 3 coins!");
+    coins.setAttribute("value", 3);
+  }
+  if (newpos == 6){
+    elem.style.top = "0px";
+    elem.style.left = "900px";
+    var a = document.createTextNode("\nPlayer 1 gained " + random + " coins!");
+    coins.setAttribute("value", random);
+  }
+  if (newpos == 7){
+    elem.style.top = "100px";
+    elem.style.left = "900px";
+    var a = document.createTextNode("\nPlayer 1 lost 3 coins!");
+    coins.setAttribute("value", -3);
+  }
+  if (newpos == 8){
+    elem.style.top = "200px";
+    elem.style.left = "900px";
+    var a = document.createTextNode("\nPlayer 1 gained 3 coins!");
+    coins.setAttribute("value", 3);
+  }
+  if (newpos == 9){
+    elem.style.top = "300px";
+    elem.style.left = "900px";
+    var a = document.createTextNode("\nPlayer 1 gained " + random + " coins!");
+    coins.setAttribute("value", random);
+  }
+  if (newpos == 10){
+    elem.style.top = "400px";
+    elem.style.left = "900px";
+    var a = document.createTextNode("\nPlayer 1 gained 0 coins!");
+    coins.setAttribute("value", 0);
+  }
+  if (newpos == 11){
+    elem.style.top = "500px";
+    elem.style.left = "900px";
+    var a = document.createTextNode("\nPlayer 1 gained 3 coins!");
+    coins.setAttribute("value", 3);
+  }
+  if (newpos == 12){
+    elem.style.top = "500px";
+    elem.style.left = "750px";
+    var a = document.createTextNode("\nPlayer 1 lost 3 coins!");
+    coins.setAttribute("value", -3);
+  }
+  if (newpos == 13){
+    elem.style.top = "500px";
+    elem.style.left = "600px";
+    var a = document.createTextNode("\nPlayer 1 gained 3 coins!");
+    coins.setAttribute("value", 3);
+  }
+  if (newpos == 14){
+    elem.style.top = "500px";
+    elem.style.left = "450px";
+    var a = document.createTextNode("\nPlayer 1 gained " + random + " coins!");
+    coins.setAttribute("value", random);
+  }
+  if (newpos == 15){
+    elem.style.top = "500px";
+    elem.style.left = "300px";
+    var a = document.createTextNode("\nPlayer 1 gained 0 coins!");
+    coins.setAttribute("value", 0);
+  }
+  if (newpos == 16){
+    elem.style.top = "500px";
+    elem.style.left = "150px";
+    var a = document.createTextNode("\nPlayer 1 gained 3 coins!");
+    coins.setAttribute("value", 3);
+  }
+  if (newpos == 17){
+    elem.style.top = "500px";
+    elem.style.left = "0px";
+    var a = document.createTextNode("\nPlayer 1 lost 3 coins!");
+    coins.setAttribute("value", -3);
+  }
+  if (newpos == 18){
+    elem.style.top = "400px";
+    elem.style.left = "0px";
+    var a = document.createTextNode("\nPlayer 1 gained 0 coins!");
+    coins.setAttribute("value", 0);
+  }
+  if (newpos == 19){
+    elem.style.top = "300px";
+    elem.style.left = "0px";
+    var a = document.createTextNode("\nPlayer 1 gained " + random + " coins!");
+    coins.setAttribute("value", random);
+  }
+  if (newpos == 20){
+    elem.style.top = "200px";
+    elem.style.left = "0px";
+    var a = document.createTextNode("\nPlayer 1 gained 0 coins!");
+    coins.setAttribute("value", 0);
+  }
+  if (newpos == 21){
+    elem.style.top = "100px";
+    elem.style.left = "0px";
+    var a = document.createTextNode("\nPlayer 1 lost 3 coins!");
+    coins.setAttribute("value", -3);
+  }
+  rollInfo.appendChild(a);
+  document.getElementById("info").appendChild(rollInfo);
+  document.getElementById("form").appendChild(coins);
 }
 
 function rollr(){
@@ -304,20 +450,19 @@ function rollr(){
     y = document.createElement("INPUT")
     y.setAttribute("type", "hidden");
     y.setAttribute("value", num);
-    y.setAttribute("name", "player1")
-    document.getElementById("info").appendChild(r)
-    document.getElementById("form").appendChild(y)
-    mover();
-    num--;
+    y.setAttribute("name", "player1");
+    document.getElementById("info").appendChild(r);
+    document.getElementById("form").appendChild(y);
+    mover(num);
+    /*num--;
     console.log(xposr);
     console.log(yposr);
     console.log(directionr);
-    myVarr  = setInterval(helpr, 1800);
-    canPress = true;
+    myVarr  = setInterval(helpr, 1800);*/
 }
 
 
-function helpr(){
+/*function helpr(){
     if (num > 0){
 	console.log(num);
   console.log(xposr);
@@ -431,13 +576,157 @@ function moveg(){
 	    upg();
 	}
     }
+}*/
+
+function moveg(num){
+  console.log(posl)
+  var newpos = ((Number(posl) + num) - 1) % 22;
+  var elem = document.getElementById("player2");
+  var random = Math.floor(Math.random() * 10) - 5;
+  var coins = document.createElement("INPUT")
+  coins.setAttribute("type", "hidden");
+  coins.setAttribute("name", "coins2");
+  if (newpos == 0){
+    elem.style.top = "0px";
+    elem.style.left = "0px";
+    var a = document.createTextNode("\nPlayer 2 gained 3 coins!");
+    coins.setAttribute("value", 3);
+  }
+  if (newpos == 1){
+    elem.style.top = "0px";
+    elem.style.left = "150px";
+    var a = document.createTextNode("\nPlayer 2 gained 0 coins!");
+    coins.setAttribute("value", 0);
+  }
+  if (newpos == 2){
+    elem.style.top = "0px";
+    elem.style.left = "300px";
+    var a = document.createTextNode("\nPlayer 2 lost 3 coins!");
+    coins.setAttribute("value", -3);
+  }
+  if (newpos == 3){
+    elem.style.top = "0px";
+    elem.style.left = "450px";
+    var a = document.createTextNode("\nPlayer 2 gained " + random + " coins!");
+    coins.setAttribute("value", random);
+  }
+  if (newpos == 4){
+    elem.style.top = "0px";
+    elem.style.left = "600px";
+    var a = document.createTextNode("\nPlayer 2 lost 3 coins!");
+    coins.setAttribute("value", -3);
+  }
+  if (newpos == 5){
+    elem.style.top = "0px";
+    elem.style.left = "750px";
+    var a = document.createTextNode("\nPlayer 2 gained 3 coins!");
+    coins.setAttribute("value", 3);
+  }
+  if (newpos == 6){
+    elem.style.top = "0px";
+    elem.style.left = "900px";
+    var a = document.createTextNode("\nPlayer 2 gained " + random + " coins!");
+    coins.setAttribute("value", random);
+  }
+  if (newpos == 7){
+    elem.style.top = "100px";
+    elem.style.left = "900px";
+    var a = document.createTextNode("\nPlayer 2 lost 3 coins!");
+    coins.setAttribute("value", -3);
+  }
+  if (newpos == 8){
+    elem.style.top = "200px";
+    elem.style.left = "900px";
+    var a = document.createTextNode("\nPlayer 2 gained 3 coins!");
+    coins.setAttribute("value", 3);
+  }
+  if (newpos == 9){
+    elem.style.top = "300px";
+    elem.style.left = "900px";
+    var a = document.createTextNode("\nPlayer 2 gained " + random + " coins!");
+    coins.setAttribute("value", random);
+  }
+  if (newpos == 10){
+    elem.style.top = "400px";
+    elem.style.left = "900px";
+    var a = document.createTextNode("\nPlayer 2 gained 0 coins!");
+    coins.setAttribute("value", 0);
+  }
+  if (newpos == 11){
+    elem.style.top = "500px";
+    elem.style.left = "900px";
+    var a = document.createTextNode("\nPlayer 2 gained 3 coins!");
+    coins.setAttribute("value", 3);
+  }
+  if (newpos == 12){
+    elem.style.top = "500px";
+    elem.style.left = "750px";
+    var a = document.createTextNode("\nPlayer 2 lost 3 coins!");
+    coins.setAttribute("value", -3);
+  }
+  if (newpos == 13){
+    elem.style.top = "500px";
+    elem.style.left = "600px";
+    var a = document.createTextNode("\nPlayer 2 gained 3 coins!");
+    coins.setAttribute("value", 3);
+  }
+  if (newpos == 14){
+    elem.style.top = "500px";
+    elem.style.left = "450px";
+    var a = document.createTextNode("\nPlayer 2 gained " + random + " coins!");
+    coins.setAttribute("value", random);
+  }
+  if (newpos == 15){
+    elem.style.top = "500px";
+    elem.style.left = "300px";
+    var a = document.createTextNode("\nPlayer 2 gained 0 coins!");
+    coins.setAttribute("value", 0);
+  }
+  if (newpos == 16){
+    elem.style.top = "500px";
+    elem.style.left = "150px";
+    var a = document.createTextNode("\nPlayer 2 gained 3 coins!");
+    coins.setAttribute("value", 3);
+  }
+  if (newpos == 17){
+    elem.style.top = "500px";
+    elem.style.left = "0px";
+    var a = document.createTextNode("\nPlayer 2 lost 3 coins!");
+    coins.setAttribute("value", -3);
+  }
+  if (newpos == 18){
+    elem.style.top = "400px";
+    elem.style.left = "0px";
+    var a = document.createTextNode("\nPlayer 2 gained 0 coins!");
+    coins.setAttribute("value", 0);
+  }
+  if (newpos == 19){
+    elem.style.top = "300px";
+    elem.style.left = "0px";
+    var a = document.createTextNode("\nPlayer 2 gained " + random + " coins!");
+    coins.setAttribute("value", random);
+  }
+  if (newpos == 20){
+    elem.style.top = "200px";
+    elem.style.left = "0px";
+    var a = document.createTextNode("\nPlayer 2 gained 0 coins!");
+    coins.setAttribute("value", 0);
+  }
+  if (newpos == 21){
+    elem.style.top = "100px";
+    elem.style.left = "0px";
+    var a = document.createTextNode("\nPlayer 2 lost 3 coins!");
+    coins.setAttribute("value", -3);
+  }
+  rollInfo.appendChild(a);
+  document.getElementById("info").appendChild(rollInfo);
+  document.getElementById("form").appendChild(coins);
 }
 
 function rollg(pressEvent){
     num = Math.floor(Math.random() * 6) + 1;
     console.log(num);
-    var rollInfo = document.createElement("P");
-    var a = document.createTextNode("Player 2 rolled a " + num);
+    var a = document.createTextNode("\nPlayer 2 rolled a " + num);
     rollInfo.appendChild(a);
     document.getElementById("info").appendChild(rollInfo);
     var y = document.createElement("INPUT");
@@ -445,13 +734,13 @@ function rollg(pressEvent){
     y.setAttribute("value", num);
     y.setAttribute("name", "player2")
     document.getElementById("form").appendChild(y)
-    moveg();
-    num--;
-    myVarg = setInterval(helpg, 1800);
+    moveg(num);
+    //num--;
+    //myVarg = setInterval(helpg, 1800);
 }
 
 
-function helpg(){
+/*function helpg(){
     if (num > 0){
 	console.log(num);
   console.log(xposr);
@@ -463,14 +752,14 @@ function helpg(){
     else{
 	clearInterval(myVarg);
     }
-}
+}*/
 
 function roll(pressEvent){
-    if (pressEvent.code == "KeyS"){
+    if (pressEvent.code == "KeyS" && !mario){
 		rollr();
 		mario = true;
     }
-    else if (pressEvent.code == "KeyK" && canPress){
+    else if (pressEvent.code == "KeyK" && !luigi && mario){
 		rollg();
 		luigi = true;
     }
@@ -489,8 +778,6 @@ function roll(pressEvent){
 		link.setAttribute("href", "memmatch");
   }*/
 	    document.getElementById("form").appendChild(link);
-	    mario = false;
-	    luigi = false;
     }
 }
 

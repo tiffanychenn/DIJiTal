@@ -1,11 +1,10 @@
 
 body {
-  display: flex;
-  flex-direction: row;
+  /*display: flex;
+  flex-direction: row;*/
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  font-family: 'Special Elite', cursive;
 }
 
 .container {
@@ -92,26 +91,6 @@ body {
   transform: rotateY(180deg);
 }
 
-
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    background-image: url('http://127.0.0.1:5000/static/pics/playerback.png');
-}
-
-.background1 {
-    position: fixed;
-    top: 0;
-    left: 49.5%;
-    width: 50.5%;
-    height: 100%;
-    background-image: url('http://127.0.0.1:5000/static/pics/player1back.jpeg');
-}
-
-
 .game-over {
   display: none;
   flex-direction: column;
@@ -119,7 +98,7 @@ body {
   align-items: center;
   background: rgba(20, 20, 20, .9);
   position: fixed;
-  top: 0;
+  top: 20%;
   bottom: 0;
   width: 100%;
   z-index: 1;
@@ -142,7 +121,6 @@ button {
 button:hover {
   background-color: #808080;
 }
-
 
 
 
