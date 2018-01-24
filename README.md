@@ -4,7 +4,7 @@
 
 ## Software Developers: Tiffany Chen (project manager), Jonathan Quang, Iris Tao, Donia Tung
 
-### link to video: ###
+#### video links: ####
 [fun version](https://youtu.be/WS6XTaAPNSA)
 
 [normal version](https://youtu.be/orV3ghtU8Y8) 
