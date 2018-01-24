@@ -19,7 +19,10 @@ def root():
 def board():
     posm = "pos" + str(db.getPosition(session["id"],0)[0]+ 1)
     posl = "pos" + str(db.getPosition(session["id"],1)[0]+ 1)
-    return render_template('board.html', pos_mario = posm, pos_luigi = posl, posm = posm, posl = posl)
+    coinsm = db.getCoins(session["id"],0)[0]
+    coinsl = db.getCoins(session["id"],1)[0]
+    turns = db.getTurns(session["id"])[0]
+    return render_template('board.html', pos_mario = posm, pos_luigi = posl, posm = posm, posl = posl, coinsm = coinsm, coinsl = coinsl, passcode = session["passcode"], turns = turns)
 
 @app.route('/slots')
 def slots():

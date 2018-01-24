@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
+
+{% block title %}
   <style>
 
     #board{
@@ -169,16 +170,117 @@
     background-color: white;
     }
 
-    #p1{
-
-    }
-    #p2{
-      
+    #marioandluigicoolness {
+      position: absolute;
+      z-index: 1;
+      right: 450px;
+      top: 375px;
     }
   </style>
-  <body>
 
-    <h4> Hi! Player 1 presses "S" to roll the dice and move and Player 2 presses "K" </h4>
+{% endblock %}
+{% block body %}
+
+    <h2> Let's go around the board! </h2>
+
+<!-- start ugly progress bar stuff -->
+{% if turns == 0 %}
+  <div class="primary progress" role="progressbar" tabindex="0" aria-valuenow="0" aria-valuemin="0" aria-valuetext="0 percent" aria-valuemax="100" style="width: 80%; margin: auto; margin-bottom: 50px;;">
+    <div class="progress-meter" style="width: 0%">
+      <p class="progress-meter-text"></p>
+    </div>
+  </div>
+{% endif %}
+{% if turns == 1 %}
+  <div class="primary progress" role="progressbar" tabindex="0" aria-valuenow="10" aria-valuemin="0" aria-valuetext="10 percent" aria-valuemax="100" style="width: 80%; margin: auto; margin-bottom: 50px;">
+    <div class="progress-meter" style="width: 10%">
+      <p class="progress-meter-text">10%</p>
+    </div>
+  </div>
+{% endif %}
+{% if turns == 2 %}
+  <div class="primary progress" role="progressbar" tabindex="0" aria-valuenow="20" aria-valuemin="0" aria-valuetext="20 percent" aria-valuemax="100" style="width: 80%; margin: auto; margin-bottom: 50px;">
+    <div class="progress-meter" style="width: 20%">
+      <p class="progress-meter-text">20%</p>
+    </div>
+  </div>
+{% endif %}
+{% if turns == 3 %}
+  <div class="primary progress" role="progressbar" tabindex="0" aria-valuenow="30" aria-valuemin="0" aria-valuetext="30 percent" aria-valuemax="100" style="width: 80%; margin: auto; margin-bottom: 50px;">
+    <div class="progress-meter" style="width: 30%">
+      <p class="progress-meter-text">30%</p>
+    </div>
+  </div>
+{% endif %}
+{% if turns == 4 %}
+  <div class="success progress" role="progressbar" tabindex="0" aria-valuenow="40" aria-valuemin="0" aria-valuetext="40 percent" aria-valuemax="100" style="width: 80%; margin: auto; margin-bottom: 50px;">
+    <div class="progress-meter" style="width: 40%">
+      <p class="progress-meter-text">40%</p>
+    </div>
+  </div>
+{% endif %}
+{% if turns == 5 %}
+  <div class="success progress" role="progressbar" tabindex="0" aria-valuenow="50" aria-valuemin="0" aria-valuetext="50 percent" aria-valuemax="100" style="width: 80%; margin: auto; margin-bottom: 50px;">
+    <div class="progress-meter" style="width: 50%">
+      <p class="progress-meter-text">50%</p>
+    </div>
+  </div>
+{% endif %}
+{% if turns == 6 %}
+  <div class="success progress" role="progressbar" tabindex="0" aria-valuenow="60" aria-valuemin="0" aria-valuetext="60 percent" aria-valuemax="100" style="width: 80%; margin: auto; margin-bottom: 50px;">
+    <div class="progress-meter" style="width: 60%">
+      <p class="progress-meter-text">60%</p>
+    </div>
+  </div>
+{% endif %}
+{% if turns == 7 %}
+  <div class="warning progress" style="width: 80%; margin: auto; margin-bottom: 50px;">
+    <div class="progress-meter" style="width: 70%">
+      <p class="progress-meter-text">70%</p>
+    </div>
+  </div>
+{% endif %}
+{% if turns == 8 %}
+  <div class="warning progress" style="width: 80%; text-align: center;">
+    <div class="progress-meter" style="width: 80%">
+      <p class="progress-meter-text">80%</p>
+    </div>
+  </div>
+{% endif %}
+{% if turns == 9 %}
+  <div class="warning progress" style="width: 80%; text-align: center;">
+    <div class="progress-meter" style="width: 90%">
+      <p class="progress-meter-text">90%</p>
+    </div>
+  </div>
+{% endif %}
+<!-- end ugly progress bar stuff -->
+
+<div style="text-align: center;">
+<button class="button" type="dropdown" data-toggle="rules-dropdown" style="background-color: #00A676; border-radius: 8px;">Rules</button>
+<div class="dropdown-pane" id="rules-dropdown" data-dropdown>
+  Both players move around the board to get coins.<br>
+  Scoring guide: blue = +3 coins, orange = -3 coins, purple = random amount of coins from -5 to 5, yellow = 0 coins
+</div>
+<button class="button" type="dropdown" data-toggle="controls-dropdown" style="background-color: #EB5E55; border-radius: 8px;">Controls</button>
+<div class="dropdown-pane" id="controls-dropdown" data-dropdown>
+  Player 1 presses the s key to roll the die and move. Player 2 presses the k key to roll the die and move.
+</div>
+</div>
+
+<div id="marioandluigicoolness">
+    <div class="grid-x grid-margin-x">
+      <div class="cell small-6">
+        <h4>Player 1 (Mario):</h4><br><img src="../static/marioprofile.png"><br><br>
+        <h4>{{coinsm}} <img src="../static/coin.png"></h4>
+      </div>
+      <div class="cell small-6">
+        <h4>Player 2 (Luigi):</h4><br><img src="../static/luigiprofile.png"><br><br>
+        <h4>{{coinsl}} <img src="../static/coin.png"></h4>
+      </div>
+    </div>
+</div>
+
     <div id="board">
       {% for i in range(1, 23) %}
       <div id="space{{i}}" class="boardTiles">
@@ -201,5 +303,5 @@
     </div>
     <script type="text/javascript" src="../static/js/board.js">
     </script>
-  </body>
-</html>
+
+{% endblock %}
