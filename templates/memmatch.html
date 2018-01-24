@@ -6,9 +6,13 @@ Following steps:
 2.3. add card fronts to two players
 2.5. add two divided backgrounds to distinguish players
 3. add content behind each card (aka setting card back pics)
+4. flip function, with animation (controled by mouse first)
 ***************************************************
 
-4. flip function, with animation (controled by mouse first)
+
++++++Do everything for Player[] for now and forget about player2, preferablly you can just add a class but if not just c&p everything for 2+++++
+
+
 5. initializae keyboard action
 	* hover a card, highlight it 
 	* space / enter to flip 
@@ -29,19 +33,31 @@ Following steps:
     
   </head>
   <body>
-  
+
+	<section class = 'game-over'>
+	  	<h1></h1>
+	  	<button> Restart </button>
+	</section>
 
 
-  <script src='static/js/memm.js'></script>
+	<section class = 'scoreDisplay1'>
+		<h2></h2><br><br>
+	</section>
+	
 
     <section class='otherstuff'>
 		<div class='background'></div>
 		<div class='background1'></div>
 	</section>
 
-	<section class='timer'>Timer: 00</section>
+	
 
-	<section class='board'>
+
+	<div class='responsive-border-back'></div>
+    <section class='score'></section>
+    <div class='responsive-border-center'></div>
+
+	<section class='table'>
 
 	<div class = 'container'>
 		<div class = 'card1'>
@@ -128,42 +144,12 @@ Following steps:
 	</div>
 	</section>
 
+	
 
+	
 
+    
 
-
-	<script>
-		var flipped1;
-		var flipped2;
-		var timepassed;
-
-		function setBoard(){
-		    var card = document.getElementsByClassName('card');
-		    var pics = ["url('images/100.jpg')", "url('images/101.jpg')", "url('images/102.jpg')", "url('images/103.jpg')", "url('images/104.jpg')", "url('images/105.jpg')", "url('images/106.jpg')", "url('images/107.jpg')", "url('images/100.jpg')", "url('images/101.jpg')", "url('images/102.jpg')", "url('images/103.jpg')", "url('images/104.jpg')", "url('images/105.jpg')", "url('images/106.jpg')", "url('images/107.jpg')"];
-
-		    timepassed = 59;
-		    flipped1 = [];
-		    flipped2 = [];
-
-		}
-
-		function flipCard(){
-		}
-
-		function turnBack(){
-		}
-
-		function shuffle(){
-		}
-
-		function startTiming(){
-		}
-
-		function gameOverDisplay(){
-		}
-
-	</script>
-
-
+ 	<script src='../static/js/memm.js'></script>
 	</body>
 </html>

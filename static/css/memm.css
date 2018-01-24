@@ -1,13 +1,13 @@
+
 .container {
 	width: 13%;
 	margin: 0.5% 1.7% 0.5% 1.7%;
 	height: 250px;
 	position: relative;
 	perspective: 800px;
-	background-color: red;
 }
 
-.board {
+.table {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -22,12 +22,21 @@
 	transition: transform 1s;
 }
 
+.card1 {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	transform-style: preserve-3d;
+	transition: transform 1s;
+}
+
 .card div {
 	margin: 0;
 	display: block;
 	position: absolute;
 	width: 100%;
 	height: 100%;
+	backface-visibility: hidden;
 }
 
 .card1 div {
@@ -36,6 +45,7 @@
 	position: absolute;
 	width: 100%;
 	height: 100%;
+	backface-visibility: hidden;
 }
 
 .card .front {
@@ -58,13 +68,19 @@
 	transform: rotateY(180deg);
 }
 
-.timer {
-	margin-left:10%;
-	margin-bottom:2%;
-	height: 50px;
-	text-align: center;
-	font-weight: 200;
-	font-size: 38pt;
+.card1 .back {
+	background: url('#');
+	background-size: cover;
+	background-position: center;
+	transform: rotateY(180deg);
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card1.flipped {
+  transform: rotateY(180deg);
 }
 
 
@@ -85,5 +101,44 @@
     height: 100%;
     background-image: url('../../pics/player1back.jpeg');
 }
+
+
+.game-over {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(20, 20, 20, .9);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+h1 {
+  color: white;
+  font-size: 72pt;
+  font-weight: 400;
+}
+
+button {
+  width: 350px;
+  height: 100px;
+  font-size: 36pt;
+  font-weight: 600;
+  outline: none;
+}
+
+button:hover {
+  background-color: #808080;
+}
+
+h2 {
+	color: purple;
+	font-size: 40pt;
+	font-weight: 300;
+}
+
 
 
