@@ -80,3 +80,6 @@ scoring now works for minigames
 
 irisT -- 2018-01-24 02:30
 added ptext(for displaying players'names) and switchTurn() for memory match
+
+tiffanyC -- 2018-01-24 18:00
+incorporated memory match into the game and finished scoring system for the board

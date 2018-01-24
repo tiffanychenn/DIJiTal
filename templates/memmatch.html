@@ -1,234 +1,18 @@
-{% extends "base2.html" %}
+<!DOCTYPE html>
 
-{% block title %}
-    <title>memory matching minigame</title>
-    <link rel='stylesheet' type = 'text/css' href='static/css/memm.css'/>
-
-    <!-- <style>
-		.container {
-			width: 13%;
-			margin: 0.5% 1.7% 0.5% 1.7%;
-			height: 250px;
-			position: relative;
-			perspective: 800px;
-		}
-
-		.table {
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			width: 100%;
-		}
-
-		.card {
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			transform-style: preserve-3d;
-			transition: transform 1s;
-		}
-
-		.card1 {
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			transform-style: preserve-3d;
-			transition: transform 1s;
-		}
-
-		.card div {
-			margin: 0;
-			display: block;
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			backface-visibility: hidden;
-		}
-
-		.card1 div {
-			margin: 0;
-			display: block;
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			backface-visibility: hidden;
-		}
-
-		.card .front {
-			background: url('../static/pics/back.jpg');
-			background-size: cover;
-			background-position: center;
-		}
-
-		.card1 .front {
-			background: url('../static/pics/back1.jpg');
-			background-size: cover; 
-			background-position: center;
-
-		}
-
-		.card .back {
-			background: url('#');
-			background-size: cover;
-			background-position: center;
-			transform: rotateY(180deg);
-		}
-
-		.card1 .back {
-			background: url('#');
-			background-size: cover;
-			background-position: center;
-			transform: rotateY(180deg);
-		}
-
-		.card.flipped {
-		  transform: rotateY(180deg);
-		}
-
-		.card1.flipped {
-		  transform: rotateY(180deg);
-		}
-
-
-		.background {
-		    position: fixed;
-		    top: 0;
-		    left: 0;
-		    width: 50%;
-		    height: 100%;
-		    background-image: url('../static/pics/playerback.png');
-
-		}
-
-		.background1 {
-		    position: fixed;
-		    top: 0;
-		    left: 49.5%;
-		    width: 50.5%;
-		    height: 100%;
-		    background-image: url('../static/pics/player1back.jpeg');
-		}
-
-
-		.game-over {
-		  display: none;
-		  flex-direction: column;
-		  justify-content: center;
-		  align-items: center;
-		  background: rgba(20, 20, 20, .9);
-		  position: fixed;
-		  top: 0;
-		  bottom: 0;
-		  width: 100%;
-		  z-index: 1;
-		}
-
-		h1 {
-		  	color: yellow;
-		  	font-size: 72pt;
-		  	font-weight: 400;
-		}
-
-		button {
-		  width: 350px;
-		  height: 100px;
-		  font-size: 36pt;
-		  font-weight: 600;
-		  outline: none;
-		}
-
-		button:hover {
-		  background-color: #808080;
-		}
-
-
-</style> -->
-
+<html>
+  <head>
     <title>Memory Matching Game</title>
     <link rel='stylesheet' type = 'text/css' href='http://127.0.0.1:5000/static/css/memm.css'/>
     
-{% endblock %}
-{% block body %}
-
-<h2>Play our memory match minigame!</h2>
-
-<!-- start ugly progress bar stuff -->
-{% if turns == 0 %}
-  <div class="primary progress" role="progressbar" tabindex="0" aria-valuenow="0" aria-valuemin="0" aria-valuetext="0 percent" aria-valuemax="100" style="width: 80%; margin: auto; margin-bottom: 50px;;">
-    <div class="progress-meter" style="width: 0%">
-      <p class="progress-meter-text"></p>
-    </div>
-  </div>
-{% endif %}
-{% if turns == 1 %}
-  <div class="primary progress" role="progressbar" tabindex="0" aria-valuenow="10" aria-valuemin="0" aria-valuetext="10 percent" aria-valuemax="100" style="width: 80%; margin: auto; margin-bottom: 50px;">
-    <div class="progress-meter" style="width: 10%">
-      <p class="progress-meter-text">10%</p>
-    </div>
-  </div>
-{% endif %}
-{% if turns == 2 %}
-  <div class="primary progress" role="progressbar" tabindex="0" aria-valuenow="20" aria-valuemin="0" aria-valuetext="20 percent" aria-valuemax="100" style="width: 80%; margin: auto; margin-bottom: 50px;">
-    <div class="progress-meter" style="width: 20%">
-      <p class="progress-meter-text">20%</p>
-    </div>
-  </div>
-{% endif %}
-{% if turns == 3 %}
-  <div class="primary progress" role="progressbar" tabindex="0" aria-valuenow="30" aria-valuemin="0" aria-valuetext="30 percent" aria-valuemax="100" style="width: 80%; margin: auto; margin-bottom: 50px;">
-    <div class="progress-meter" style="width: 30%">
-      <p class="progress-meter-text">30%</p>
-    </div>
-  </div>
-{% endif %}
-{% if turns == 4 %}
-  <div class="success progress" role="progressbar" tabindex="0" aria-valuenow="40" aria-valuemin="0" aria-valuetext="40 percent" aria-valuemax="100" style="width: 80%; margin: auto; margin-bottom: 50px;">
-    <div class="progress-meter" style="width: 40%">
-      <p class="progress-meter-text">40%</p>
-    </div>
-  </div>
-{% endif %}
-{% if turns == 5 %}
-  <div class="success progress" role="progressbar" tabindex="0" aria-valuenow="50" aria-valuemin="0" aria-valuetext="50 percent" aria-valuemax="100" style="width: 80%; margin: auto; margin-bottom: 50px;">
-    <div class="progress-meter" style="width: 50%">
-      <p class="progress-meter-text">50%</p>
-    </div>
-  </div>
-{% endif %}
-{% if turns == 6 %}
-  <div class="success progress" role="progressbar" tabindex="0" aria-valuenow="60" aria-valuemin="0" aria-valuetext="60 percent" aria-valuemax="100" style="width: 80%; margin: auto; margin-bottom: 50px;">
-    <div class="progress-meter" style="width: 60%">
-      <p class="progress-meter-text">60%</p>
-    </div>
-  </div>
-{% endif %}
-{% if turns == 7 %}
-  <div class="warning progress" style="width: 80%; margin: auto; margin-bottom: 50px;">
-    <div class="progress-meter" style="width: 70%">
-      <p class="progress-meter-text">70%</p>
-    </div>
-  </div>
-{% endif %}
-{% if turns == 8 %}
-  <div class="warning progress" style="width: 80%; text-align: center;">
-    <div class="progress-meter" style="width: 80%">
-      <p class="progress-meter-text">80%</p>
-    </div>
-  </div>
-{% endif %}
-{% if turns == 9 %}
-  <div class="warning progress" style="width: 80%; text-align: center;">
-    <div class="progress-meter" style="width: 90%">
-      <p class="progress-meter-text">90%</p>
-    </div>
-  </div>
-{% endif %}
-<!-- end ugly progress bar stuff -->
+  </head>
+<body>
 
 	<section class = 'game-over'>
 	  	<h1></h1>
 	  	<button> Play Again! </button>
 	</section>
+
 
     <section class='otherstuff'>
 		<div class='background'></div>
@@ -240,6 +24,9 @@
 	<div class='p1turn'>Your turn to flip two cards!</div>
 	<div class='p2turn'></div>
 	
+
+
+
 	<section class='table'>
 
 	<div class = 'container'>
@@ -329,17 +116,12 @@
 	</section>
 
 	
-	<div class="grid-x grid-margin-x" style="text-align: center;">
-      <div class="cell small-6">
-        <h4>Player 1 (Mario):</h4><br><img src="../static/marioprofile.png"><br><br>
-        <h4>{{coinsm}} <img src="../static/coin.png"></h4>
-      </div>
-      <div class="cell small-6">
-        <h4>Player 2 (Luigi):</h4><br><img src="../static/luigiprofile.png"><br><br>
-        <h4>{{coinsl}} <img src="../static/coin.png"></h4>
-      </div>
-    </div>
+
 	
 
+    
+
  	<script src='http://127.0.0.1:5000/static/js/memm.js'></script>
-{% endblock %}
+	</body>
+	
+</html>

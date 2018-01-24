@@ -1,12 +1,4 @@
 
-body {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-}
-
 .container {
 	width: 13%;
 	margin: 0.5% 1.7% 0.5% 1.7%;
@@ -126,8 +118,6 @@ body {
   transform: rotateY(180deg);
 }
 
-<<<<<<< HEAD
-=======
 
 .background {
     position: fixed;
@@ -149,6 +139,8 @@ body {
     z-index: -1;
 }
 
+
+
 .game-over {
   display: none;
   flex-direction: column;
@@ -156,7 +148,7 @@ body {
   align-items: center;
   background-image: url('http://127.0.0.1:5000/static/UA5jssX.png');
   position: fixed;
-  top: 20%;
+  top: 0;
   bottom: 0;
   width: 100%;
   z-index: 1;

@@ -193,10 +193,10 @@
     	endGame.style.display = 'flex';
 
     	if (score > score1){
-    		endGame.querySelector('h1').innerText = 'Player 2 won';
+    		endGame.querySelector('h1').innerText = 'Player2 Won';
     	}
     	else {
-    		endGame.querySelector('h1').innerText = 'Player 1 won';
+    		endGame.querySelector('h1').innerText = 'Player1 Won';
     	}
 	}
 
@@ -206,5 +206,4 @@
 
 
 })();
-
 
