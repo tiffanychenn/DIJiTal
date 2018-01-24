@@ -6,8 +6,6 @@
 	var score = 0;
 	var score1 = 0;
 	var endGame = document.getElementsByClassName('game-over')[0];
-	var scoreD = document.getElementsByClassName('scoreDisplay')[0];
-	var scoreD1 = document.getElementsByClassName('scoreDisplay1')[0];
 	var turn = 1; //default: player1 flip first
 	var p1text = document.getElementsByClassName('p1turn')[0];
 	var p2text = document.getElementsByClassName('p2turn')[0];
@@ -44,8 +42,18 @@
 	    	card1[i].addEventListener('click', flipCard1);  	
 	    }
 
+	    var butrules = document.getElementsByTagName('button')[1];
+	    butrules.addEventListener('click',function(){alert("Player 1 starts the game by clicking on and flipping a pair of cards. If the backs of the cards match, the cards remain flipped and Player 1 gains one point. If they don't, they flip back and no point is gained or lost. After Player 1 flips and checks two cards, Player 2 does the same. The two continue to take turn until one player has flipped and successfully matched all the cards. The page will then be directed to the game-over page on which the winner is displayed and the option to play again or to go back to the board page is given.")});
+
+	    var butcontrols = document.getElementsByTagName('button')[2];
+	    butcontrols.addEventListener('click',function(){alert("Click on the cards to flip them!")});
+
 	}
 
+	function testing(){
+		console.log('testingclicked');
+
+	}
 	//------DONE------------------------------------------------------
 	function flipCard(){ //run when the card (this) is clicked
 		//first, check if this card has already been flipped
@@ -59,7 +67,7 @@
 			if (flippedCards.length == 2){ 
 			//if two cards are flipped, compare them
 				matchTest();
-				console.log('nowitschekcingmath');
+				//console.log('nowitschekcingmath');
 
 			}
 		}
@@ -189,6 +197,7 @@
 	function gameOverDisplay(){
 		var restart = document.getElementsByTagName('button')[0];
     	restart.addEventListener('click', setBoard);
+
 
     	endGame.style.display = 'flex';
 

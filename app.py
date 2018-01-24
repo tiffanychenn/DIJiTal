@@ -56,7 +56,7 @@ def memm():
     '''spotsdict = request.args.to_dict()
     posm = spotsdict["player1"]
     posl = spotsdict["player2"]'''
-    return render_template('memmatch.html', turns = db.getTurns(session["id"])[0], coinsm = 0, coinsl = 0)
+    return render_template('memmatch.html')
 
 @app.route('/dino')
 def dino():
