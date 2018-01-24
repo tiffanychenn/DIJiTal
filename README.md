@@ -1,6 +1,6 @@
 # DIJiTal
 
-## Let's go DIJiTal! (period 8)
+# Let's go DIJiTal! (period 8)
 
 ## Software Developers: Tiffany Chen (project manager), Jonathan Quang, Iris Tao, Donia Tung
 
