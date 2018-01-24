@@ -5,174 +5,175 @@ var directiong;
 var xposg;
 var yposg;
 
-var posm = document.getElementById("player1").innerHTML;
-var posl = document.getElementById("player2").innerHTML;
+posm = document.getElementById("p1").innerHTML[10];
+posl = document.getElementById("p2").innerHTML[10];
 
-if (posm > 6 && posm <= 11){
-  directionr = "down";
-  xposr = 900;
-  if (posm == 7){
-    yposr = 100;
+function placeM(){
+  if (posm <= 6){
+    yposr = 0;
+    directionr = "right";
+    if (posm == 1){
+      xposr = 0;
+    }
+    else if (posm == 2){
+      xposr = 150;
+    }
+    else if (posm == 3){
+      xposr = 300;
+    }
+    else if (posm == 4){
+      xposr = 450;
+    }
+    else if (posm == 5){
+      xposr = 600;
+    }
+    else if (posm == 6){
+      xposr = 750;
+    }
   }
-  else if (posm == 8){
-    yposr = 200;
-  }
-  else if (posm == 9){
-    yposr = 300;
-  }
-  else if (posm == 10){
-    yposr = 400;
-  }
-  else if (posm == 11){
-    yposr = 500;
-  }
-}
-else if (posm > 11 && posm <= 17){
-  directionr = "left";
-  yposr = 600;
-  if (posm == 12){
+  else if (posm > 6 && posm < 13){
     xposr = 900;
-  }
-  else if (posm == 13){
-    xposr = 750;
-  }
-  else if (posm == 14){
-    xposr = 600;
-  }
-  else if (posm == 15){
-    xposr = 450;
-  }
-  else if (posm == 16){
-    xposr = 300;
-  }
-  else{
-    xposr = 150;
-  }
-}
-else if (posm > 17 && posm <= 22){
-  directionr = "up";
-  xposr = 0;
-  if (posm == 18){
+    directionr = "down";
+    if (posm == 7){
+      yposr = 0;
+      console.log("hello");
+    }
+    else if (posm == 8){
+      yposr = 100;
+    }
+    else if (posm == 9){
+      yposr = 200;
+    }
+    else if (posm == 10){
+      yposr = 300;
+    }
+    else if (posm == 11){
+      yposr = 400;
+    }
+  else if (posm > 11 && posm < 18){
     yposr = 500;
+    directionr = "left";
+    if (posm == 13){
+      xposr = 750;
+    }
+    else if (posm == 14){
+      xposr = 600;
+    }
+    else if (posm == 15){
+      xposr = 450;
+    }
+    else if (posm == 16){
+      xposr = 300;
+    }
+    else if (posm == 17){
+      xposr = 150;
+    }
   }
-  else if (posm == 19){
-    yposr = 400;
+  else if (posm > 17 && posm < 23){
+    xposr = 0;
+    directionr = "up";
+    if (posm == 19){
+      yposr = 400;
+    }
+    else if (posm == 20){
+      yposr = 300;
+    }
+    else if (posm == 21){
+      yposr = 200;
+    }
+    else if (posm == 22){
+      yposr = 100;
+    }
   }
-  else if (posm == 20){
-    yposr = 300;
+}}
+
+function placeL(){
+  if (posl < 8){
+    yposg = 0;
+    directiong = "right";
+    if (posl == 1){
+      xposg = 0;
+    }
+    else if (posl == 2){
+      xposg = 150;
+    }
+    else if (posl == 3){
+      xposg = 300;
+    }
+    else if (posl == 4){
+      xposg = 450;
+    }
+    else if (posl == 5){
+      xposg = 600;
+    }
+    else if (posl == 6){
+      xposg = 750;
+    }
   }
-  else if (posm == 21){
-    yposr = 200;
+  else if (posl > 6 && posl < 13){
+    xposg = 900;
+    directiong = "down";
+    if (posl == 8){
+      yposg = 100;
+    }
+    else if (posl == 9){
+      yposg = 200;
+    }
+    else if (posl == 10){
+      yposg = 300;
+    }
+    else if (posl == 11){
+      yposg = 400;
+    }
+  else if (posl > 11 && posl < 18){
+    yposg = 500;
+    directiong = "left";
+    if (posl == 13){
+      xposg = 750;
+    }
+    else if (posl == 14){
+      xposg = 600;
+    }
+    else if (posl == 15){
+      xposg = 450;
+    }
+    else if (posl == 16){
+      xposg = 300;
+    }
+    else if (posl == 17){
+      xposg = 150;
+    }
   }
-  else if (posm == 22){
-    yposr = 100;
+  else if (posl > 17 && posl < 23){
+    xposg = 0;
+    directiong = "up";
+    if (posl == 19){
+      yposg = 400;
+    }
+    else if (posl == 20){
+      yposg = 300;
+    }
+    else if (posl == 21){
+      yposg = 200;
+    }
+    else if (posl == 22){
+      yposg = 100;
+    }
   }
 }
-else {
-  directionr = "right";
-  yposr = 0;
-  if (posm == 1){
-    xposr = 0;
-  }
-  else if (posm == 2){
-    xposr = 150;
-  }
-  else if (posm == 3){
-    xposr = 300;
-  }
-  else if (posm == 4){
-    xposr = 450;
-  }
-  else if (posm == 5){
-    xposr = 600;
-  }
-  else if (posm == 6){
-    xposr = 750;
-  }
 }
 
-if (posl > 6 && posl <= 11){
-  directiong = "down";
-  xposg = 900;
-  if (posl == 7){
-    yposg = 100;
-  }
-  else if (posl == 8){
-    yposg = 200;
-  }
-  else if (posl == 9){
-    yposg = 300;
-  }
-  else if (posl == 10){
-    yposg = 400;
-  }
-  else if (posl == 11){
-    yposg = 500;
-  }
-}
-else if (posl > 11 && posl <= 17){
-  directiong = "left";
-  yposg = 600;
-  if (posl == 12){
-    xposg = 900;
-  }
-  else if (posl == 13){
-    xposg = 750;
-  }
-  else if (posl == 14){
-    xposg = 600;
-  }
-  else if (posl == 15){
-    xposg = 450;
-  }
-  else if (posl == 16){
-    xposg = 300;
-  }
-  else{
-    xposg = 150;
-  }
-}
-else if (posl > 17 && posl <= 22){
-  directiong = "up";
-  xposg = 0;
-  if (posl == 18){
-    yposg = 500;
-  }
-  else if (posl == 19){
-    yposg = 400;
-  }
-  else if (posl == 20){
-    yposg = 300;
-  }
-  else if (posl == 21){
-    yposg = 200;
-  }
-  else if (posl == 22){
-    yposg = 100;
-  }
-}
-else {
-  directiong = "right";
-  yposg = 0;
-  if (posl == 1){
-    xposg = 0;
-  }
-  else if (posl == 2){
-    xposg = 150;
-  }
-  else if (posl == 3){
-    xposg = 300;
-  }
-  else if (posl == 4){
-    xposg = 450;
-  }
-  else if (posl == 5){
-    xposg = 600;
-  }
-  else if (posl == 6){
-    xposg = 750;
-  }
-}
+placeM();
+placeL();
+
+console.log(posm);
+console.log(xposr);
+console.log(yposr);
+console.log(directionr);
+console.log(posl);
+console.log(xposg);
+console.log(yposg);
+console.log(directiong);
 
 var num;
 var myVarr;
@@ -246,7 +247,6 @@ function mover(){
     if (directionr == "right"){
 	if (xposr == 900){
 	    directionr = "down";
-	    yposr = 0;
 	    downr();
 	}
 	else {
@@ -264,7 +264,7 @@ function mover(){
 	}
     }
     else if (directionr == "down"){
-	if (yposr == 500){
+	if (yposr == 400){
 	    directionr = "left";
 	    xposr = 900;
 	    leftr();
@@ -309,6 +309,9 @@ function rollr(){
     document.getElementById("form").appendChild(y)
     mover();
     num--;
+    console.log(xposr);
+    console.log(yposr);
+    console.log(directionr);
     myVarr  = setInterval(helpr, 1800);
     canPress = true;
 }
@@ -317,6 +320,9 @@ function rollr(){
 function helpr(){
     if (num > 0){
 	console.log(num);
+  console.log(xposr);
+  console.log(yposr);
+  console.log(directionr);
 	mover();
 	num--;
     }
@@ -370,17 +376,17 @@ function downg() {
 
 
 function upg(){
-    var elem = document.getElementById("player2");
-    var endpt = yposg - 100;
-    var id = setInterval(frame, 10);
-    function frame() {
-	if (yposg == endpt) {
-	    clearInterval(id);
-	} else {
-	    yposg--;
-	    elem.style.top = yposg + 'px';
-	}
-    }
+      var elem = document.getElementById("player2");
+      var endpt = yposg - 100;
+      var id = setInterval(frame, 10);
+      function frame() {
+  	if (yposg == endpt) {
+  	    clearInterval(id);
+  	} else {
+  	    yposg--;
+  	    elem.style.top = yposg + 'px';
+  	}
+  }
 }
 
 
@@ -448,6 +454,9 @@ function rollg(pressEvent){
 function helpg(){
     if (num > 0){
 	console.log(num);
+  console.log(xposr);
+  console.log(yposr);
+  console.log(directionr);
 	moveg();
 	num--;
     }
