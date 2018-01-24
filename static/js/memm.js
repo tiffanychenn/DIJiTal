@@ -9,13 +9,15 @@
 	var scoreD = document.getElementsByClassName('scoreDisplay')[0];
 	var scoreD1 = document.getElementsByClassName('scoreDisplay1')[0];
 	var turn = 1; //default: player1 flip first
-	var p1text = document.getElementsByClassName('p1turn');
-	var p2text = document.getElementsByClassName('p2turn');
+	var p1text = document.getElementsByClassName('p1turn')[0];
+	var p2text = document.getElementsByClassName('p2turn')[0];
+
 
 	function setBoard(){	
 		score = 0;
 		score1 = 0;
 		endGame.style.display = 'none';
+		
 		var card = document.getElementsByClassName('card');
 		var card1 = document.getElementsByClassName('card1');
 
@@ -61,13 +63,11 @@
 
 			}
 		}
-
-		turn ++;
-		
-
-
-		}	
 	}
+
+
+		
+	
 
 	function flipCard1(){ //run when the card (this) is clicked
 		//first, check if this card has already been flipped
@@ -128,7 +128,9 @@
 			//wait for 1 sec, flipBack the card.
 			setTimeout(turnBack, 1000);
 		}
+		setTimeout(switchTurn, 1000);
 	}
+
 
 	function matchTest1(){
 		//if the first card flipped refers to the same object (the back image) as the second one does
@@ -150,8 +152,21 @@
 			//wait for 1 sec, flipBack the card.
 			setTimeout(turnBack1, 1000);
 		}
+		setTimeout(switchTurn, 1000);
 	}
 
+	function switchTurn(){
+		turn ++;
+		if (turn % 2 ==0){//p2turn
+			p2text.innerText="Your turn to flip two cards!";
+			p1text.innerText="";
+		}
+		else{
+			p2text.innerText="";
+			p1text.innerText='Your turn to flip two cards!';
+		}
+
+	}
 
 
 	//------DONE------------------------------------------------------
@@ -178,10 +193,10 @@
     	endGame.style.display = 'flex';
 
     	if (score > score1){
-    		endGame.querySelector('h1').innerText = 'Player1 Won';
+    		endGame.querySelector('h1').innerText = 'Player2 Won';
     	}
     	else {
-    		endGame.querySelector('h1').innerText = 'Player2 Won';
+    		endGame.querySelector('h1').innerText = 'Player1 Won';
     	}
 	}
 

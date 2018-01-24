@@ -22,9 +22,26 @@
 	color:purple;
 	font-family: cursive;
 	font-size:20pt;
+
 }
 
+.p1turn {
+	float:left;
+	margin-left:20%;
+	color: orange;
+	font-family:cursive;
+	font-size:20pt;
 
+}
+
+.p2turn {
+	float:right;
+	margin-right:20%;
+	color:purple;
+	font-family: cursive;
+	font-size:20pt;
+	
+}
 
 .table {
 	display: flex;
@@ -122,7 +139,6 @@
     background-image: url('http://127.0.0.1:5000/static/pics/player1back.jpeg');
     z-index: -1;
 }
-
 
 
 
