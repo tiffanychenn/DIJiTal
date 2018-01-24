@@ -1,5 +1,6 @@
 (function() {
 
+
 	var flippedCards = []; //flipped cards collection for player
 	var flippedCards1 = []; //flipped cards collection for player1
 	var score = 0;
@@ -14,8 +15,8 @@
 		var card1 = document.getElementsByClassName('card1');
 
 
-		var pics = [];
-		var pics1 = [];
+		var pics = ["url('http://127.0.0.1:5000/static/pics/1.png')", "url('http://127.0.0.1:5000/static/pics/2.png')","url('http://127.0.0.1:5000/static/pics/3.png')","url('http://127.0.0.1:5000/static/pics/1.png')","url('http://127.0.0.1:5000/static/pics/2.png')","url('http://127.0.0.1:5000/static/pics/3.png')"];
+		var pics1 = ["url('http://127.0.0.1:5000/static/pics/4.png')","url('http://127.0.0.1:5000/static/pics/5.png')","url('http://127.0.0.1:5000/static/pics/6.png')", "url('http://127.0.0.1:5000/static/pics/4.png')", "url('http://127.0.0.1:5000/static/pics/5.png')","url('http://127.0.0.1:5000/static/pics/6.png')"];
 		shuffle(pics); 
 		shuffle(pics1); 
 		
