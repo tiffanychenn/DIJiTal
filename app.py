@@ -42,17 +42,11 @@ def slots():
 
 @app.route('/memm')
 def memm():
-<<<<<<< HEAD
-	'''spotsdict = request.args.to_dict()
-	posm = spotsdict["player1"]
-	posl = spotsdict["player2"]'''
-	return render_template('memmatch.html')
-=======
     '''spotsdict = request.args.to_dict()
     posm = spotsdict["player1"]
     posl = spotsdict["player2"]'''
     return render_template('memmatch.html')
->>>>>>> cd8a18436d0fc388d3aadae2b64ac378a77a09c0
+
 
 @app.route('/dino')
 def dino():
