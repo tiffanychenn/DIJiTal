@@ -58,13 +58,13 @@ body {
 }
 
 .card .front {
-	background: url('../../pics/back.jpg');
+	background: url('../pics/back.jpg');
 	background-size: cover;
 	background-position: center;
 }
 
 .card1 .front {
-	background: url('../../pics/back1.jpg');
+	background: url('../pics/back1.jpg');
 	background-size: cover; 
 	background-position: center;
 
@@ -99,7 +99,7 @@ body {
     left: 0;
     width: 50%;
     height: 100%;
-    background-image: url('../../pics/playerback.png');
+    background-image: url('static/playerback.png');
 }
 
 .background1 {
@@ -108,7 +108,7 @@ body {
     left: 49.5%;
     width: 50.5%;
     height: 100%;
-    background-image: url('../../pics/player1back.jpeg');
+    background-image: url('static/player1back.jpeg');
 }
 
 
