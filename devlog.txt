@@ -61,3 +61,6 @@ pushed a change to board that should(?) fix it so that it moves correctly when p
 
 tiffanyC -- 2018-01-23 22:45
 the board now has css
+
+tiffanyC -- 2018-01-24 00:25
+scoring now works for minigames
