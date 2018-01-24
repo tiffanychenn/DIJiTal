@@ -13,10 +13,9 @@
 		var card = document.getElementsByClassName('card');
 		var card1 = document.getElementsByClassName('card1');
 
-		var pics = ["url('../pics/1.png')", "url('../pics/2.png')", "url('../pics/3.png')","url('../pics/1.png')", "url('../pics/2.png')", "url('../pics/3.png')" ];
 
-		var pics1 = ["url('../pics/4.png')", "url('../pics/5.png')", "url('../pics/6.png')","url('../pics/4.png')", "url('../pics/5.png')", "url('../pics/6.png')"];
-
+		var pics = [];
+		var pics1 = [];
 		shuffle(pics); 
 		shuffle(pics1); 
 		

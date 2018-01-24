@@ -1,38 +1,153 @@
 <!DOCTYPE html>
 
-<!--
-Following steps:
-
-2.3. add card fronts to two players
-2.5. add two divided backgrounds to distinguish players
-3. add content behind each card (aka setting card back pics)
-4. flip function, with animation (controled by mouse first)
-***************************************************
-
-
-+++++Do everything for Player[] for now and forget about player2, preferablly you can just add a class but if not just c&p everything for 2+++++
-
-
-5. initializae keyboard action
-	* hover a card, highlight it 
-	* space / enter to flip 
-
-6. ......
-
-* timer function 
-* score (competing)
-* winning / losing page 
-
--->
-
-
 <html>
   <head>
     <title>Memory Matching Game</title>
-    <link rel='stylesheet' type = 'text/css' href='../static/css/memm.css'/>
+    <link rel='stylesheet' type = 'text/css' href='static/css/memm.css'/>
+
+    <!-- <style>
+		.container {
+			width: 13%;
+			margin: 0.5% 1.7% 0.5% 1.7%;
+			height: 250px;
+			position: relative;
+			perspective: 800px;
+		}
+
+		.table {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			width: 100%;
+		}
+
+		.card {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			transform-style: preserve-3d;
+			transition: transform 1s;
+		}
+
+		.card1 {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			transform-style: preserve-3d;
+			transition: transform 1s;
+		}
+
+		.card div {
+			margin: 0;
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			backface-visibility: hidden;
+		}
+
+		.card1 div {
+			margin: 0;
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			backface-visibility: hidden;
+		}
+
+		.card .front {
+			background: url('../static/pics/back.jpg');
+			background-size: cover;
+			background-position: center;
+		}
+
+		.card1 .front {
+			background: url('../static/pics/back1.jpg');
+			background-size: cover; 
+			background-position: center;
+
+		}
+
+		.card .back {
+			background: url('#');
+			background-size: cover;
+			background-position: center;
+			transform: rotateY(180deg);
+		}
+
+		.card1 .back {
+			background: url('#');
+			background-size: cover;
+			background-position: center;
+			transform: rotateY(180deg);
+		}
+
+		.card.flipped {
+		  transform: rotateY(180deg);
+		}
+
+		.card1.flipped {
+		  transform: rotateY(180deg);
+		}
+
+
+		.background {
+		    position: fixed;
+		    top: 0;
+		    left: 0;
+		    width: 50%;
+		    height: 100%;
+		    background-image: url('../static/pics/playerback.png');
+
+		}
+
+		.background1 {
+		    position: fixed;
+		    top: 0;
+		    left: 49.5%;
+		    width: 50.5%;
+		    height: 100%;
+		    background-image: url('../static/pics/player1back.jpeg');
+		}
+
+
+		.game-over {
+		  display: none;
+		  flex-direction: column;
+		  justify-content: center;
+		  align-items: center;
+		  background: rgba(20, 20, 20, .9);
+		  position: fixed;
+		  top: 0;
+		  bottom: 0;
+		  width: 100%;
+		  z-index: 1;
+		}
+
+		h1 {
+		  	color: yellow;
+		  	font-size: 72pt;
+		  	font-weight: 400;
+		}
+
+		button {
+		  width: 350px;
+		  height: 100px;
+		  font-size: 36pt;
+		  font-weight: 600;
+		  outline: none;
+		}
+
+		button:hover {
+		  background-color: #808080;
+		}
+
+
+</style> -->
+
     
   </head>
-  <body>
+<body>
 
 	<section class = 'game-over'>
 	  	<h1></h1>
@@ -152,4 +267,5 @@ Following steps:
 
  	<script src='../static/js/memm.js'></script>
 	</body>
+	
 </html>

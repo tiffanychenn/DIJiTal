@@ -39,9 +39,9 @@ def slots():
 
 @app.route('/memm')
 def memm():
-	spotsdict = request.args.to_dict()
+	'''spotsdict = request.args.to_dict()
 	posm = spotsdict["player1"]
-	posl = spotsdict["player2"]
+	posl = spotsdict["player2"]'''
 	return render_template('memmatch.html')
 
 @app.route('/dino')

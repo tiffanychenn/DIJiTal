@@ -1,4 +1,13 @@
 
+body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Special Elite', cursive;
+}
+
 .container {
 	width: 13%;
 	margin: 0.5% 1.7% 0.5% 1.7%;
@@ -117,9 +126,9 @@
 }
 
 h1 {
-  color: white;
-  font-size: 72pt;
-  font-weight: 400;
+  	color: yellow;
+  	font-size: 72pt;
+  	font-weight: 400;
 }
 
 button {
@@ -134,11 +143,7 @@ button:hover {
   background-color: #808080;
 }
 
-h2 {
-	color: purple;
-	font-size: 40pt;
-	font-weight: 300;
-}
+
 
 
 
