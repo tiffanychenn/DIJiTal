@@ -242,7 +242,7 @@ var playerControls = function(pressEvent){
 		var formNode = document.createElement("form");
 		formNode.innerText = "click here to go back to the board. The winner is Player " + (winner+1);
 		formNode.setAttribute('method','GET');
-		formNode.setAttribute('action','/board');
+		formNode.setAttribute('action','/update');
 		var winnerData = document.createElement("input");
 		winnerData.setAttribute('name','winner');
 		winnerData.setAttribute('value',winner);

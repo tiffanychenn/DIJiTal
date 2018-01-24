@@ -10,6 +10,7 @@ app.secret_key = urandom(32)
 def root():
 	try:
 		session.pop("id")
+		session.pop("passcode")
 	except:
 		pass
 	return render_template('home.html')
@@ -27,14 +28,18 @@ def slots():
 	posl = spotsdict["player2"]
 	db.setPosition(session["id"],0,db.getPosition(session["id"],0)[0] + int(posm))
 	db.setPosition(session["id"],1,db.getPosition(session["id"],1)[0] + int(posl))
-	return render_template('slots.html')
+	db.setPlace(session["id"],1)
+	coinsm = db.getCoins(session["id"],0)[0]
+	coinsl = db.getCoins(session["id"],1)[0]
+	turns = db.getTurns(session["id"])[0]
+	return render_template('slots.html', coinsm = coinsm, coinsl = coinsl, passcode = session["passcode"], turns = turns)
 
-@app.route('/memm')
+'''@app.route('/memm')
 def memm():
 	spotsdict = request.args.to_dict()
 	posm = spotsdict["player1"]
 	posl = spotsdict["player2"]
-	return render_template('memmatch.html')
+	return render_template('memmatch.html')'''
 
 @app.route('/dino')
 def dino():
@@ -43,7 +48,18 @@ def dino():
 	posl = spotsdict["player2"]
 	db.setPosition(session["id"],0,db.getPosition(session["id"],0)[0] + int(posm))
 	db.setPosition(session["id"],1,db.getPosition(session["id"],1)[0] + int(posl))
-	return render_template('dino.html')
+	db.setPlace(session["id"],2)
+	coinsm = db.getCoins(session["id"],0)[0]
+	coinsl = db.getCoins(session["id"],1)[0]
+	turns = db.getTurns(session["id"])[0]
+	print turns
+	return render_template('dino.html', coinsm = coinsm, coinsl = coinsl, passcode = session["passcode"], turns = turns)
+
+@app.route('/update')
+def update():
+	db.setTurns(session["id"],db.getTurns(session["id"])[0] + 1)
+	db.setPlace(session["id"],0)
+	return redirect(url_for('board'))
 
 @app.route('/results')
 def results():
@@ -56,15 +72,24 @@ def oldGame():
 	if boolean == 2:
 		flash("Game ID does not exist.")
 	elif boolean:
-		session["id"] = db.getGameID(game);
-		return redirect(url_for("board"))
+		session["id"] = db.getGameID(game)
+		session["passcode"] = game
+		where = db.getPlace(session["id"])[0]
+		if where == 0:
+			return redirect(url_for("board"))
+		elif where == 1:
+			return redirect(url_for("slots"))
+		else:
+			return redirect(url_for("dino"))
 	else:
 		flash("Game has already passed ten turns.")
 	return redirect(url_for("root"))
 
 @app.route('/newGame', methods=["GET", "POST"])
 def newGame():
-	db.createGame()
+	game = db.createGame()
+	session["id"] = db.getGameID(game)
+	session["passcode"] = game
 	return redirect(url_for("board"))
 
 if __name__ == '__main__':

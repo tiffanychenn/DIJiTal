@@ -27,17 +27,19 @@ def authenticate(game):
     return turns < 10
 
 def createGame():
+    passcode = int(random.random() * 10000)
     db, c = openDatabase()
     cm = "SELECT COUNT(*) FROM games;"
     for i in c.execute(cm):
         game = i[0]
-    cm = 'INSERT INTO games VALUES (%d, 0, %d)' %(game, int(random.random() * 10000))
+    cm = 'INSERT INTO games VALUES (%d, 0, %d, 0)' %(game, passcode)
     c.execute(cm)
-    cm = 'INSERT INTO players VALUES (%d, 0, 0, 0)' %game
+    cm = 'INSERT INTO players VALUES (%d, 0, 10, 0)' %game
     c.execute(cm)
-    cm = 'INSERT INTO players VALUES (%d, 1, 0, 0)' %game
+    cm = 'INSERT INTO players VALUES (%d, 1, 10, 0)' %game
     c.execute(cm)
     closeDatabase(db)
+    return passcode
 
 # START ALL OUR GET FUNCTIONS
 
@@ -77,6 +79,15 @@ def getTurns(game):
     closeDatabase(db)
     return turns
 
+def getPlace(game):
+    db, c = openDatabase()
+    cm = 'SELECT place_in_turn FROM games WHERE gameID = %d;' %game
+    x = c.execute(cm)
+    for i in x:
+        place = i
+    closeDatabase(db)
+    return place
+
 # END ALL OUR GET FUNCTIONS
 
 # START ALL OUR SET FUNCTIONS
@@ -93,9 +104,15 @@ def setPosition(game, player, position):
     c.execute(cm)
     closeDatabase(db)
 
-def setCoins(game, turns):
+def setTurns(game, turns):
     db, c = openDatabase()
     cm = 'UPDATE games SET turns = %d WHERE gameID = %d;' %(turns, game)
+    c.execute(cm)
+    closeDatabase(db)
+
+def setPlace(game, place):
+    db, c = openDatabase()
+    cm = 'UPDATE games SET place_in_turn = %d WHERE gameID = %d;' %(place, game)
     c.execute(cm)
     closeDatabase(db)
 
