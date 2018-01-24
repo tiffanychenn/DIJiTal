@@ -4,8 +4,9 @@
 
 ## Software Developers: Tiffany Chen (project manager), Jonathan Quang, Iris Tao, Donia Tung
 
-**link to video: **
+### link to video: ###
 [fun version](https://youtu.be/WS6XTaAPNSA)
+
 [normal version](https://youtu.be/orV3ghtU8Y8) 
 
 ## Welcome to our Mario Party!
