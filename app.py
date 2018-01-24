@@ -37,12 +37,12 @@ def slots():
 	turns = db.getTurns(session["id"])[0]
 	return render_template('slots.html', coinsm = coinsm, coinsl = coinsl, passcode = session["passcode"], turns = turns)
 
-'''@app.route('/memm')
+@app.route('/memm')
 def memm():
 	spotsdict = request.args.to_dict()
 	posm = spotsdict["player1"]
 	posl = spotsdict["player2"]
-	return render_template('memmatch.html')'''
+	return render_template('memmatch.html')
 
 @app.route('/dino')
 def dino():
